@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 get '/player/odi/:id' => 'player#odi_info'
 get '/player/test/:id' => 'player#test_info'
 get '/player/t20/:id' => 'player#t20_info'
+get '/compare' => 'player#compare'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
