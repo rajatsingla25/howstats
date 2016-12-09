@@ -6,12 +6,17 @@
   <input name="Player 2" type="string" />
   <input name="Submit" type="button" value="Submit" />
 </form> -->
+
+<style>
+.ui-helper-hidden-accessible { display:none; }
+</style>
 <h1>PLAYER FIGHT!</h1>
 <br>
 <%= form_tag("/compare", method: "get") do %>
   
   <h3>Player 1</h3>
   <%= label_tag(:p1, "Player 1") %>
+  
   <%= text_field_tag(:p1) %>
   <br><br>
 
@@ -25,3 +30,84 @@
 
   <%= submit_tag("Submit") %>
 <% end %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+var autocompletes = (function(){
+      function player_search_autocomplete(){
+          $(document).ready(function() {
+              $('#p1').autocomplete({ 
+                  source: function(request,response){
+                      $.ajax({
+                          method: 'GET',
+                          url : '/players/autocomplete_player_name?term=' + $('#p1').val(),
+                          dataType : 'json',
+                          success : function(data) {
+                            data = data.slice(0,3);
+                               response($.map(data,function(v,i) {
+                                var playerName =  v.name;
+
+                                return {
+                                    id: v.webId,
+                                    label: playerName,
+                                    value: playerName
+                                }
+                            }))
+                        }
+                    });
+                },
+                open: function() {
+                    var width = $('#p1').width() + 22;
+                    $('.ui-menu-item').width(width);
+                  },
+                select: function() {
+                   
+                }
+            });
+            $('#p2').autocomplete({ 
+                  source: function(request,response){
+                      $.ajax({
+                          method: 'GET',
+                          url : '/players/autocomplete_player_name?term=' + $('#p2').val(),
+                          dataType : 'json',
+                          success : function(data) {
+                            data = data.slice(0,3);
+                               response($.map(data,function(v,i) {
+                                var playerName =  v.name;
+
+                                return {
+                                    id: v.webId,
+                                    label: playerName,
+                                    value: playerName
+                                }
+                            }))
+                        }
+                    });
+                },
+                open: function() {
+                    var width = $('#p2').width() + 22;
+                    $('.ui-menu-item').width(width);
+                  },
+                select: function() {
+                   
+                }
+            });
+        });
+    }
+    return {
+        init : function() {
+                  player_search_autocomplete();
+               }
+      };
+});
+function init(){
+  
+  autocompletes().init();
+
+}
+
+
+window.addEventListener('load',init);
+</script>

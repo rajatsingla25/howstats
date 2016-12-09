@@ -10,6 +10,12 @@ get '/player/t20/:id' => 'player#t20_info'
 get '/compare/:id1/:id2' => 'player#compare'
 get '/compare' => 'player#compare'
 get '/home' => 'player#home'
+# match get '/player/search/autocomplete?term=:id' => 'player#searchList'
+
+# resources :players do
+#   get :autocomplete_player_name, on: :collection
+# end
+get 'players/autocomplete_player_name' => 'player#autocomplete_player_name'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

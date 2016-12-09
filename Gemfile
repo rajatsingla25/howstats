@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'pry-rails'
+gem 'rails4-autocomplete'
 gem 'yaml_db'
 gem 'watir'
+gem "jquery-ui-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'
 # Use sqlite3 as the database for Active Record
@@ -24,7 +26,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'yaml_db'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
