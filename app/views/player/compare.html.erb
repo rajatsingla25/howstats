@@ -1,148 +1,346 @@
-<html>
-<head>
-  <style type="text/css">
-          body{
-            font-family: Arial;
-            border: 0 none;
-            
-          }
-          #brand_div {
-              width: 100%; 
-              height: 100%;
-              background: url(assets/image3-e6e17229a3925b71f3a7409e6eb5c41421769c6d8a1143f61c955e4941e08142.jpg);
-          }
-          #vis_div {
-            width: 100%; 
-            height: 100%;
-          }
-  
-  </style>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <html>
+  <head>
+    <style type="text/css">
+      body{
+        font-family: Arial;
+        border: 0 none;
+        /*height: 600px;*/
+      }
+      #brand_div {
+        width: 100%; 
+        height: 100%;
+        background: url(assets/image3-e6e17229a3925b71f3a7409e6eb5c41421769c6d8a1143f61c955e4941e08142.jpg);
+      }
+      #vis_div {
+        width: 100%; 
+        height: 100%;
+      }
+
+      table 
+      {
+        text-align: center;
+          border-collapse: collapse;
+          width: 100%;
+      }
+      table, th, td 
+      {
+         border: 1px solid black;
+      }
+      td:nth-child(even) 
+      {
+        background-color: #f2f2f2
+      }
+      th:nth-child(even) 
+      {
+        background-color: #f2f2f2
+      }
+      td
+      {
+        width: 8%;
+        height: 50px;
+      }
+      th
+      {
+        height: 50px;
+      }
+
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
   <body>
-   <input type = 'button' id = 'b1' value = 'odi' />
-   <input type = 'button' id = 'b2' value = 't20' />
-   <input type = 'button' id = 'b3' value = 'test' />
+   <input type = 'button' id = 'b1' value = 'ODIs' />
+   <input type = 'button' id = 'b2' value = 'T20s' />
+   <input type = 'button' id = 'b3' value = 'Tests' />
    <div id="brand_div">
-          <div id="vis_div"> </div>
-   </div>
- </body>
+    <div id="vis_div"> </div>
+  </div>
 
- 
- <script type="text/javascript">
+  <div class="table" id="odi_table">
+    <table>
+      <tr>
+        <th></th>
+        <th>Matches</th>
+        <th>Innings</th>
+        <th>Runs</th>
+        <th>Highest<br>Score</th>
+        <th>Avg</th>
+        <th>Strike Rate</th>
+        <th>Hundreds</th>
+        <th>Double<br>Hundreds</th>
+        <th>Fifty</th>
+        <th>Fours</th>
+        <th>Sixes</th>
+      </tr>
 
+      <tr>
+        <% p1 = @player1.records.second %>
+        <td><strong><%= @player1.name %></strong></td>
+        <td><%= p1.m %></td>
+        <td><%= p1.inn %></td>
+        <td><%= p1.runs %></td>
+        <td><%= p1.hs %></td>
+        <td><%= p1.avg %></td>
+        <td><%= p1.sr %></td>
+        <td><%= p1.hundred %></td>
+        <td><%= p1.dhundred %></td>
+        <td><%= p1.fifty %></td>
+        <td><%= p1.four %></td>
+        <td><%= p1.six %></td>
+      </tr>
+
+      <tr>
+        <% p1 = @player2.records.second %>
+        <td><strong><%= @player2.name %></strong></td>
+        <td><%= p1.m %></td>
+        <td><%= p1.inn %></td>
+        <td><%= p1.runs %></td>
+        <td><%= p1.hs %></td>
+        <td><%= p1.avg %></td>
+        <td><%= p1.sr %></td>
+        <td><%= p1.hundred %></td>
+        <td><%= p1.dhundred %></td>
+        <td><%= p1.fifty %></td>
+        <td><%= p1.four %></td>
+        <td><%= p1.six %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="table" id="test_table">
+    <table>
+      <tr>
+        <th></th>
+        <th>Matches</th>
+        <th>Innings</th>
+        <th>Runs</th>
+        <th>Highest<br>Score</th>
+        <th>Avg</th>
+        <th>Strike Rate</th>
+        <th>Hundreds</th>
+        <th>Double<br>Hundreds</th>
+        <th>Fifty</th>
+        <th>Fours</th>
+        <th>Sixes</th>
+      </tr>
+
+      <tr>
+        <% p1 = @player1.records.first %>
+        <td><strong><%= @player1.name %></strong></td>
+        <td><%= p1.m %></td>
+        <td><%= p1.inn %></td>
+        <td><%= p1.runs %></td>
+        <td><%= p1.hs %></td>
+        <td><%= p1.avg %></td>
+        <td><%= p1.sr %></td>
+        <td><%= p1.hundred %></td>
+        <td><%= p1.dhundred %></td>
+        <td><%= p1.fifty %></td>
+        <td><%= p1.four %></td>
+        <td><%= p1.six %></td>
+      </tr>
+
+      <tr>
+        <% p1 = @player2.records.first %>
+        <td><strong><%= @player2.name %></strong></td>
+        <td><%= p1.m %></td>
+        <td><%= p1.inn %></td>
+        <td><%= p1.runs %></td>
+        <td><%= p1.hs %></td>
+        <td><%= p1.avg %></td>
+        <td><%= p1.sr %></td>
+        <td><%= p1.hundred %></td>
+        <td><%= p1.dhundred %></td>
+        <td><%= p1.fifty %></td>
+        <td><%= p1.four %></td>
+        <td><%= p1.six %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="table" id="t20_table">
+    <table>
+      <tr>
+        <th></th>
+        <th>Matches</th>
+        <th>Innings</th>
+        <th>Runs</th>
+        <th>Highest<br>Score</th>
+        <th>Avg</th>
+        <th>Strike Rate</th>
+        <th>Hundreds</th>
+        <th>Double<br>Hundreds</th>
+        <th>Fifty</th>
+        <th>Fours</th>
+        <th>Sixes</th>
+      </tr>
+
+      <tr>
+        <% p1 = @player1.records.third %>
+        <td><strong><%= @player1.name %></strong></td>
+        <td><%= p1.m %></td>
+        <td><%= p1.inn %></td>
+        <td><%= p1.runs %></td>
+        <td><%= p1.hs %></td>
+        <td><%= p1.avg %></td>
+        <td><%= p1.sr %></td>
+        <td><%= p1.hundred %></td>
+        <td><%= p1.dhundred %></td>
+        <td><%= p1.fifty %></td>
+        <td><%= p1.four %></td>
+        <td><%= p1.six %></td>
+      </tr>
+
+      <tr>
+        <% p1 = @player2.records.third %>
+        <td><strong><%= @player2.name %></strong></td>
+        <td><%= p1.m %></td>
+        <td><%= p1.inn %></td>
+        <td><%= p1.runs %></td>
+        <td><%= p1.hs %></td>
+        <td><%= p1.avg %></td>
+        <td><%= p1.sr %></td>
+        <td><%= p1.hundred %></td>
+        <td><%= p1.dhundred %></td>
+        <td><%= p1.fifty %></td>
+        <td><%= p1.four %></td>
+        <td><%= p1.six %></td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+
+<script type="text/javascript">
+        var div_odi= document.getElementById('odi_table');
+        var div_t20= document.getElementById('t20_table');
+        var div_test= document.getElementById('test_table');
         google.charts.load('current');   // Don't need to specify chart libraries!
         google.charts.setOnLoadCallback(initialise);
 
         var options =
-            {
-             'title': 'Comparison',
-             animation: {duration: 1500, startup: true,},
-             bar: {groupWidth: "10%"}, 
-             colors: ['DarkGoldenrod','Black'],
-             opacity: 0.9,
-             backgroundColor: 'none',
-             vAxis: {
-                 gridlines: {
-                     color: 'transparent'
-                 }
-             }
-            };
-        function initialise() {
-          var wrapper = new google.visualization.ChartWrapper({
-            containerId: 'vis_div'
+        {
+         'title': 'Comparison',
+         animation: {duration: 2000, startup: true,},
+         bar: {groupWidth: "10%"}, 
+         colors: ['DarkGoldenrod','Black'],
+         opacity: 0.9,
+         backgroundColor: 'none',
+         vAxis: {
+           gridlines: {
+             color: 'transparent'
+           }
+         }
+       };
+       function initialise() {
+        var wrapper = new google.visualization.ChartWrapper({
+          containerId: 'vis_div'
+        });
+
+        var odiButton = document.getElementById('b1');  
+        var t20Button = document.getElementById('b2');  
+        var testButton = document.getElementById('b3');  
+        wrapper.setOptions(options);
+
+        function drawOdi()
+        {
+          options['title'] = "Comparison in ODIs";
+          var id1=<%= @idd1 %>;
+          var id2=<%= @idd2 %>;
+          var json1 = $.getJSON("http://localhost:3000/player/odi/"+id1+".json").done(function() {
+
+            var json2 = $.getJSON("http://localhost:3000/player/odi/"+id2+".json").done(function(){
+              console.log(" success ");
+              var data = 
+              [
+              ['Field', json1.responseJSON.name, json2.responseJSON.name,],
+              ['Strike Rate',json1.responseJSON.sr , json2.responseJSON.sr,],
+              ['Fours/10',(json1.responseJSON.four)/10, (json2.responseJSON.four)/10],
+              ['Sixes', json1.responseJSON.six, json2.responseJSON.six,],
+              ['Average',json1.responseJSON.avg, json2.responseJSON.avg,]
+              ];
+              wrapper.setChartType('ColumnChart');
+              wrapper.setDataTable(data);
+              wrapper.draw();
+
+              div_odi.style.display = 'block';
+              div_t20.style.display = 'none';
+              div_test.style.display = 'none';
+             
+            });                
           });
-            
-            var odiButton = document.getElementById('b1');  
-            var t20Button = document.getElementById('b2');  
-            var testButton = document.getElementById('b3');  
-            wrapper.setOptions(options);
+        }
 
-           function drawOdi()
-           {
-                
-                var id1=26;
-                var id2=1414;
-                var json1 = $.getJSON("http://localhost:3000/player/odi/"+id1+".json").done(function() {
+        function drawT20()
+        {
+          options['title'] = "Comparison in T20s";
+          var id1=<%= @idd1 %>;
+          var id2=<%= @idd2 %>;
+          var json1 = $.getJSON("http://localhost:3000/player/t20/"+id1+".json").done(function() {
 
-                  var json2 = $.getJSON("http://localhost:3000/player/odi/"+id2+".json").done(function(){
-                    console.log(" success ");
-                     var data = 
-                      [
-                        ['Field', json1.responseJSON.name, json2.responseJSON.name,],
-                        ['Strike Rate',json1.responseJSON.sr , json2.responseJSON.sr,],
-                        ['Fours',json1.responseJSON.four, json2.responseJSON.four],
-                        ['Sixes', json1.responseJSON.six, json2.responseJSON.six,],
-                        ['Average',json1.responseJSON.avg, json2.responseJSON.avg,]
-                       ];
-                     wrapper.setChartType('ColumnChart');
-                     wrapper.setDataTable(data);
-                     wrapper.draw();
-                  });                
-                });
-          }
+            var json2 = $.getJSON("http://localhost:3000/player/t20/"+id2+".json").done(function(){
+              console.log(" success ");
+              var data = 
+              [
+              ['Field', json1.responseJSON.name, json2.responseJSON.name,],
+              ['Strike Rate',json1.responseJSON.sr , json2.responseJSON.sr,],
+              ['Fours/10',(json1.responseJSON.four)/10, (json2.responseJSON.four)/10],
+              ['Sixes', json1.responseJSON.six, json2.responseJSON.six,],
+              ['Average',json1.responseJSON.avg, json2.responseJSON.avg,]
+              ];
+              wrapper.setChartType('ColumnChart');
+              wrapper.setDataTable(data);
+              wrapper.draw();
 
-          function drawT20()
-          {
-            var id1=26;
-                var id2=1414;
-                var json1 = $.getJSON("http://localhost:3000/player/t20/"+id1+".json").done(function() {
+              div_odi.style.display = 'none';
+              div_t20.style.display = 'block';
+              div_test.style.display = 'none';
+            });                
+          });
+        }
 
-                  var json2 = $.getJSON("http://localhost:3000/player/t20/"+id2+".json").done(function(){
-                    console.log(" success ");
-                     var data = 
-                      [
-                        ['Field', json1.responseJSON.name, json2.responseJSON.name,],
-                        ['Strike Rate',json1.responseJSON.sr , json2.responseJSON.sr,],
-                        ['Fours',json1.responseJSON.four, json2.responseJSON.four],
-                        ['Sixes', json1.responseJSON.six, json2.responseJSON.six,],
-                        ['Average',json1.responseJSON.avg, json2.responseJSON.avg,]
-                       ];
-                     wrapper.setChartType('ColumnChart');
-                     wrapper.setDataTable(data);
-                     wrapper.draw();
-                  });                
-                });
-          }
+        function drawTest()
+        {
+          options['title'] = "Comparison in Tests";
+          var id1=<%= @idd1 %>;
+          var id2=<%= @idd2 %>;
+          var json1 = $.getJSON("http://localhost:3000/player/test/"+id1+".json").done(function() {
 
-          function drawTest()
-          {
-            var id1=26;
-                var id2=1414;
-                var json1 = $.getJSON("http://localhost:3000/player/test/"+id1+".json").done(function() {
+            var json2 = $.getJSON("http://localhost:3000/player/test/"+id2+".json").done(function(){
+              console.log(" success ");
+              var data = 
+              [
+              ['Field', json1.responseJSON.name, json2.responseJSON.name,],
+              ['Strike Rate',json1.responseJSON.sr , json2.responseJSON.sr,],
+              ['Fours/10',(json1.responseJSON.four)/10, (json2.responseJSON.four)/10],
+              ['Sixes', json1.responseJSON.six, json2.responseJSON.six,],
+              ['Average',json1.responseJSON.avg, json2.responseJSON.avg,]
+              ];
+              wrapper.setChartType('ColumnChart');
+              wrapper.setDataTable(data);
+              wrapper.draw();
 
-                  var json2 = $.getJSON("http://localhost:3000/player/test/"+id2+".json").done(function(){
-                    console.log(" success ");
-                     var data = 
-                      [
-                        ['Field', json1.responseJSON.name, json2.responseJSON.name,],
-                        ['Strike Rate',json1.responseJSON.sr , json2.responseJSON.sr,],
-                        ['Fours',json1.responseJSON.four, json2.responseJSON.four],
-                        ['Sixes', json1.responseJSON.six, json2.responseJSON.six,],
-                        ['Average',json1.responseJSON.avg, json2.responseJSON.avg,]
-                       ];
-                     wrapper.setChartType('ColumnChart');
-                     wrapper.setDataTable(data);
-                     wrapper.draw();
-                  });                
-                });
-          }
+              div_odi.style.display = 'none';
+              div_t20.style.display = 'none';
+              div_test.style.display = 'block';
+            });                
+          });
+        }
+        drawOdi();
+        odiButton.onclick = function()
+        {
+          drawOdi();
+        }
 
-          odiButton.onclick = function()
-          {
-            drawOdi();
-          }
+        t20Button.onclick = function()
+        {
+          drawT20();
+        }
 
-          t20Button.onclick = function()
-          {
-            drawT20();
-          }
-
-          testButton.onclick = function()
-          {
-            drawTest();
-          }
+        testButton.onclick = function()
+        {
+          drawTest();
+        }
       }
     </script>
- </html>
+    </html>

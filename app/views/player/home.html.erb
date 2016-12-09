@@ -1,0 +1,27 @@
+<!-- home.html.erb -->
+<!-- <form accept-charset="UTF-8" action="/home" method="post">
+  Enter Player 1:	
+  <input name="Player1" type="string" />
+  Enter Player 2:
+  <input name="Player 2" type="string" />
+  <input name="Submit" type="button" value="Submit" />
+</form> -->
+<h1>PLAYER FIGHT!</h1>
+<br>
+<%= form_tag("/compare", method: "get") do %>
+  
+  <h3>Player 1</h3>
+  <%= label_tag(:p1, "Player 1") %>
+  <%= text_field_tag(:p1) %>
+  <br><br>
+
+  <h2>Vs</h2>
+  <br>
+
+  <h3>Player 2</h3>
+  <%= label_tag(:p2, "Player 2") %>
+  <%= text_field_tag(:p2) %>
+  <br><br>
+
+  <%= submit_tag("Submit") %>
+<% end %>
