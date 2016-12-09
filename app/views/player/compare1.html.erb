@@ -1,4 +1,3 @@
-<!-- compare1.html.erb -->
   <html>
   <head>
     <style type="text/css">
@@ -58,6 +57,7 @@
   </div>
 
   <div class="table" id="odi_table">
+    rendering through json
     <table>
       <tr>
         <th></th>
@@ -246,77 +246,89 @@
         function drawOdi()
         {
           options['title'] = "Comparison in ODIs";
+          var id1=<%= @idd1 %>;
+          var id2=<%= @idd2 %>;
+          var json1 = $.getJSON("http://localhost:3000/player/odi/"+id1+".json").done(function() {
 
-          <% p1 = @player1.records.second %>
-          <% p2 = @player2.records.second %>
+            var json2 = $.getJSON("http://localhost:3000/player/odi/"+id2+".json").done(function(){
+              console.log(" success ");
+              var data = 
+              [
+              ['Field', json1.responseJSON.name, json2.responseJSON.name,],
+              ['Strike Rate',json1.responseJSON.sr , json2.responseJSON.sr,],
+              ['Fours/10',(json1.responseJSON.four)/10, (json2.responseJSON.four)/10],
+              ['Sixes', json1.responseJSON.six, json2.responseJSON.six,],
+              ['Average',json1.responseJSON.avg, json2.responseJSON.avg,]
+              ];
+              wrapper.setChartType('ColumnChart');
+              wrapper.setDataTable(data);
+              wrapper.draw();
 
-          var data = 
-          [
-          ['Field', "<%= @player1.name %>", "<%= @player2.name %>",],
-          ['Strike Rate',<%= p1.sr %> , <%= p2.sr %>,],
-          ['Fours/10',(<%= p1.four %>)/10, (<%= p2.four %>)/10],
-          ['Sixes', <%= p1.six %>, <%= p2.six %>,],
-          ['Average',<%= p1.avg %>, <%= p2.avg %>,]
-          ];
-          wrapper.setChartType('ColumnChart');
-          wrapper.setDataTable(data);
-          wrapper.draw();
-
-          div_odi.style.display = 'block';
-          div_t20.style.display = 'none';
-          div_test.style.display = 'none';
-
-          
+              div_odi.style.display = 'block';
+              div_t20.style.display = 'none';
+              div_test.style.display = 'none';
+             
+            });                
+          });
         }
 
         function drawT20()
         {
           options['title'] = "Comparison in T20s";
+          <% p1 = @player1.records.second %>
+          <% p2 = @player2.records.second %>
+          var id1=<%= @idd1 %>;
+          var id2=<%= @idd2 %>;
+          console.log("<%= @player1.name %>")
+          var json1 = $.getJSON("http://localhost:3000/player/t20/"+id1+".json").done(function() {
 
-          <% p1 = @player1.records.third %>
-          <% p2 = @player2.records.third %>
+            var json2 = $.getJSON("http://localhost:3000/player/t20/"+id2+".json").done(function(){
+              console.log(" success ");
+              var data = 
+              [
+              ['Field', "<%= @player1.name %>", json2.responseJSON.name,],
+              ['Strike Rate',json1.responseJSON.sr , json2.responseJSON.sr,],
+              ['Fours/10',(json1.responseJSON.four)/10, (json2.responseJSON.four)/10],
+              ['Sixes', json1.responseJSON.six, json2.responseJSON.six,],
+              ['Average',json1.responseJSON.avg, json2.responseJSON.avg,]
+              ];
+              wrapper.setChartType('ColumnChart');
+              wrapper.setDataTable(data);
+              wrapper.draw();
 
-          var data = 
-          [
-          ['Field', "<%= @player1.name %>", "<%= @player2.name %>",],
-          ['Strike Rate',<%= p1.sr %> , <%= p2.sr %>,],
-          ['Fours/10',(<%= p1.four %>)/10, (<%= p2.four %>)/10],
-          ['Sixes', <%= p1.six %>, <%= p2.six %>,],
-          ['Average',<%= p1.avg %>, <%= p2.avg %>,]
-          ];
-          wrapper.setChartType('ColumnChart');
-          wrapper.setDataTable(data);
-          wrapper.draw();
-
-          div_odi.style.display = 'none';
-          div_t20.style.display = 'block';
-          div_test.style.display = 'none';
-
+              div_odi.style.display = 'none';
+              div_t20.style.display = 'block';
+              div_test.style.display = 'none';
+            });                
+          });
         }
 
         function drawTest()
         {
           options['title'] = "Comparison in Tests";
+          var id1=<%= @idd1 %>;
+          var id2=<%= @idd2 %>;
+          var json1 = $.getJSON("http://localhost:3000/player/test/"+id1+".json").done(function() {
 
-          <% p1 = @player1.records.first %>
-          <% p2 = @player2.records.first %>
+            var json2 = $.getJSON("http://localhost:3000/player/test/"+id2+".json").done(function(){
+              console.log(" success ");
+              var data = 
+              [
+              ['Field', json1.responseJSON.name, json2.responseJSON.name,],
+              ['Strike Rate',json1.responseJSON.sr , json2.responseJSON.sr,],
+              ['Fours/10',(json1.responseJSON.four)/10, (json2.responseJSON.four)/10],
+              ['Sixes', json1.responseJSON.six, json2.responseJSON.six,],
+              ['Average',json1.responseJSON.avg, json2.responseJSON.avg,]
+              ];
+              wrapper.setChartType('ColumnChart');
+              wrapper.setDataTable(data);
+              wrapper.draw();
 
-          var data = 
-          [
-          ['Field', "<%= @player1.name %>", "<%= @player2.name %>",],
-          ['Strike Rate',<%= p1.sr %> , <%= p2.sr %>,],
-          ['Fours/10',(<%= p1.four %>)/10, (<%= p2.four %>)/10],
-          ['Sixes', <%= p1.six %>, <%= p2.six %>,],
-          ['Average',<%= p1.avg %>, <%= p2.avg %>,]
-          ];
-          wrapper.setChartType('ColumnChart');
-          wrapper.setDataTable(data);
-          wrapper.draw();
-
-          div_odi.style.display = 'none';
-          div_t20.style.display = 'none';
-          div_test.style.display = 'block';
-
+              div_odi.style.display = 'none';
+              div_t20.style.display = 'none';
+              div_test.style.display = 'block';
+            });                
+          });
         }
         drawOdi();
         odiButton.onclick = function()
