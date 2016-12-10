@@ -49,14 +49,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
   <body>
+   
+   <%if(!@p1OdiRecord.nil?&&!@p2OdiRecord.nil?)%>
    <input type = 'button' id = 'b1' value = 'ODIs' />
+   <%end%>
+   <%if(!@p1T20Record.nil?&&!@p2T20Record.nil?)%>
    <input type = 'button' id = 'b2' value = 'T20s' />
+   <%end%>
+   <%if(!@p1TestRecord.nil?&&!@p2TestRecord.nil?)%>
    <input type = 'button' id = 'b3' value = 'Tests' />
+   <%end%>
    <div id="brand_div">
     <div id="vis_div"> </div>
   </div>
-
+  
   <div class="table" id="odi_table">
+  <%if(!@p1OdiRecord.nil?&&!@p2OdiRecord.nil?)%>
     <table>
       <tr>
         <th></th>
@@ -105,9 +113,12 @@
         <td><%= p1.six %></td>
       </tr>
     </table>
+    <%end%>
   </div>
-
+  
+  
   <div class="table" id="test_table">
+    <%if(!@p1TestRecord.nil?&&!@p2TestRecord.nil?)%>
     <table>
       <tr>
         <th></th>
@@ -156,9 +167,12 @@
         <td><%= p1.six %></td>
       </tr>
     </table>
+    <%end%>
   </div>
-
+  
+ 
   <div class="table" id="t20_table">
+     <%if(!@p1T20Record.nil?&&!@p2T20Record.nil?)%>
     <table>
       <tr>
         <th></th>
@@ -207,7 +221,9 @@
         <td><%= p1.six %></td>
       </tr>
     </table>
+    <%end%>
   </div>
+  
 </body>
 
 
@@ -326,21 +342,32 @@
             });                
           });
         }
+
+        <%if(!@p1OdiRecord.nil?&&!@p2OdiRecord.nil?)%>
         drawOdi();
+        <%elsif(!@p1TestRecord.nil?&&!@p2TestRecord.nil?)%>
+        drawTest();
+        <%elsif(!@p1T20Record.nil?&&!@p2T20Record.nil?)%>
+        drawT20();
+        <%end%>
+        if(odiButton)
         odiButton.onclick = function()
         {
           drawOdi();
         }
-
+      
+        if(t20Button)
         t20Button.onclick = function()
         {
           drawT20();
         }
-
+      
+        if(testButton)
         testButton.onclick = function()
         {
           drawTest();
         }
+      
       }
     </script>
     </html>

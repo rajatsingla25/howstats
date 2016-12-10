@@ -1,7 +1,8 @@
 class PlayerController < ApplicationController
 
 	# autocomplete :Player , :name ,full: true
-
+	before_action :set_players, only: [:compare]
+	before_action :set_records, only: [:compare]
 	def odi_info
 		@player = Player.find_by_webId(params[:id])
 		respond_to do |format|
@@ -54,10 +55,21 @@ class PlayerController < ApplicationController
 
 	def compare
 		puts params[:p1]
-		@player1 = Player.where("name LIKE '%#{params[:p1]}%'").first
-		@player2 = Player.where("name LIKE '%#{params[:p2]}%'").first
+		
 		@idd1 = @player1.webId
 		@idd2 = @player2.webId
 	end
+	def set_players
+		@player1 = Player.where("name LIKE '%#{params[:p1]}%'").first
+		@player2 = Player.where("name LIKE '%#{params[:p2]}%'").first
+	end
+	 def set_records
+	 	@p1TestRecord =@player1.records.first
+	 	@p1OdiRecord =@player1.records.second
+	 	@p1T20Record =@player1.records.third
+	 	@p2TestRecord =@player2.records.first
+	 	@p2OdiRecord =@player2.records.second
+	 	@p2T20Record =@player2.records.third
+	 end
 
 end
