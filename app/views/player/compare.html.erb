@@ -1,3 +1,4 @@
+<% @title= "#{@player1.name} Vs #{@player2.name}"%>
   <html>
   <head>
     <style type="text/css">
@@ -47,6 +48,115 @@
     </style>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      // change_value.js
+      var change = function(config)
+      {
+        this.ele = document.getElementById(config.id); 
+        this.val = config.i;
+        this.val = parseInt(this.val);
+        this.i_val = config.i;
+        this.final_value = config.f;
+        this.intervalId = -1;
+        this.ele.innerHTML = this.i_val;
+
+        if(this.final_value == this.i_val)
+          return;
+        else if(this.final_value > this.val)
+        {
+          if(this.final_value - this.i_val > config.time)
+          {
+            this.update_val = (this.final_value - this.i_val)/config.time;
+            this.update_val = parseInt(this.update_val)+1;
+            // console.log(this.update_val);
+            this.intervalId = setInterval(this.make_change1.bind(this),5);
+          }
+          else
+          {
+            this.update_interval = config.time/(this.final_value - this.i_val);
+            this.intervalId = setInterval(this.make_change.bind(this),this.update_interval);
+          }
+        }
+        else
+        {
+          if(this.i_val - this.final_value > config.time)
+          {
+            this.update_val = (this.i_val - this.final_value)/config.time;
+            this.update_val = parseInt(this.update_val)+1;
+            // console.log(this.update_val);
+            this.intervalId = setInterval(this.make_change1.bind(this),5);
+          }
+          else
+          {
+            this.update_interval = config.time/(this.i_val - this.final_value);
+            this.intervalId = setInterval(this.make_change.bind(this),this.update_interval);
+          }
+        }
+
+        
+
+      };
+
+      change.prototype.make_change = function()
+      {
+        if(this.final_value > this.i_val)
+        {
+          // console.log(this.update_interval);
+          this.val += 1;
+          // console.log(this.val);
+          if(this.val>=this.final_value)
+          {
+            clearInterval(this.intervalId);
+            this.val = this.final_value;
+            // console.log('changed');
+          }
+        }
+        else if(this.final_value < this.i_val)
+        {
+          // console.log(this.update_interval);
+
+          this.val -= 1;
+          if(this.val<=this.final_value)
+          {
+            clearInterval(this.intervalId);
+            this.val = this.final_value;
+            // console.log('chnaged');
+          }
+        }
+        // console.log(val);
+        this.ele.innerHTML = this.val;
+      };
+
+      change.prototype.make_change1 = function()
+      {
+        if(this.final_value > this.i_val)
+        {
+          // console.log(this.update_interval);
+          this.val += 5*this.update_val;
+          // console.log(this.val);
+          if(this.val>=this.final_value)
+          {
+            clearInterval(this.intervalId);
+            this.val = this.final_value;
+            // console.log('changed');
+          }
+        }
+        else if(this.final_value < this.i_val)
+        {
+          // console.log(this.update_interval);
+
+          this.val -= 5*this.update_val;
+          if(this.val<=this.final_value)
+          {
+            clearInterval(this.intervalId);
+            this.val = this.final_value;
+            // console.log('chnaged');
+          }
+        }
+        // console.log(val);
+        this.ele.innerHTML = this.val;
+      };      
+    </script>
   </head>
   <body>
    <input type = 'button' id = 'b1' value = 'ODIs' />
@@ -76,38 +186,38 @@
       <tr>
         <% p1 = @player1.records.second %>
         <td><strong><%= @player1.name %></strong></td>
-        <td><%= p1.m %></td>
-        <td><%= p1.inn %></td>
-        <td><%= p1.runs %></td>
-        <td><%= p1.hs %></td>
-        <td><%= p1.avg %></td>
-        <td><%= p1.sr %></td>
-        <td><%= p1.hundred %></td>
-        <td><%= p1.dhundred %></td>
-        <td><%= p1.fifty %></td>
-        <td><%= p1.four %></td>
-        <td><%= p1.six %></td>
+        <td id='m1'>0</td>
+        <td id='inn1'>0</td>
+        <td id='runs1'>0</td>
+        <td id='hs1'>0</td>
+        <td id='avg1'>0</td>
+        <td id='sr1'>0</td>
+        <td id=hundred1>0</td>
+        <td id='dhundred1'>0</td>
+        <td id='fifty1'>0</td>
+        <td id='four1'>0</td>
+        <td id='six1'>0</td>
       </tr>
 
       <tr>
         <% p1 = @player2.records.second %>
         <td><strong><%= @player2.name %></strong></td>
-        <td><%= p1.m %></td>
-        <td><%= p1.inn %></td>
-        <td><%= p1.runs %></td>
-        <td><%= p1.hs %></td>
-        <td><%= p1.avg %></td>
-        <td><%= p1.sr %></td>
-        <td><%= p1.hundred %></td>
-        <td><%= p1.dhundred %></td>
-        <td><%= p1.fifty %></td>
-        <td><%= p1.four %></td>
-        <td><%= p1.six %></td>
+        <td id='m2'>0</td>
+        <td id='inn2'>0</td>
+        <td id='runs2'>0</td>
+        <td id='hs2'>0</td>
+        <td id='avg2'>0</td>
+        <td id='sr2'>0</td>
+        <td id='hundred2'>0</td>
+        <td id='dhundred2'>0</td>
+        <td id='fifty2'>0</td>
+        <td id='four2'>0</td>
+        <td id='six2'>0</td>
       </tr>
     </table>
   </div>
 
-  <div class="table" id="test_table">
+  <!-- <div class="table" id="test_table">
     <table>
       <tr>
         <th></th>
@@ -206,7 +316,7 @@
         <td><%= p1.four %></td>
         <td><%= p1.six %></td>
       </tr>
-    </table>
+    </table> -->
   </div>
 </body>
 
@@ -245,86 +355,274 @@
         function drawOdi()
         {
           options['title'] = "Comparison in ODIs";
-          var id1=<%= @idd1 %>;
-          var id2=<%= @idd2 %>;
-          var json1 = $.getJSON("http://localhost:3000/player/odi/"+id1+".json").done(function() {
 
-            var json2 = $.getJSON("http://localhost:3000/player/odi/"+id2+".json").done(function(){
-              console.log(" success ");
-              var data = 
-              [
-              ['Field', json1.responseJSON.name, json2.responseJSON.name,],
-              ['Strike Rate',json1.responseJSON.sr , json2.responseJSON.sr,],
-              ['Fours/10',(json1.responseJSON.four)/10, (json2.responseJSON.four)/10],
-              ['Sixes', json1.responseJSON.six, json2.responseJSON.six,],
-              ['Average',json1.responseJSON.avg, json2.responseJSON.avg,]
-              ];
-              wrapper.setChartType('ColumnChart');
-              wrapper.setDataTable(data);
-              wrapper.draw();
+          <% p1 = @player1.records.second %>
+          <% p2 = @player2.records.second %>
 
-              div_odi.style.display = 'block';
-              div_t20.style.display = 'none';
-              div_test.style.display = 'none';
-             
-            });                
-          });
+          var data = 
+          [
+          ['Field', "<%= @player1.name %>", "<%= @player2.name %>",],
+          ['Strike Rate',<%= p1.sr %> , <%= p2.sr %>,],
+          ['Fours/10',(<%= p1.four %>)/10, (<%= p2.four %>)/10],
+          ['Sixes', <%= p1.six %>, <%= p2.six %>,],
+          ['Average',<%= p1.avg %>, <%= p2.avg %>,]
+          ];
+          wrapper.setChartType('ColumnChart');
+          wrapper.setDataTable(data);
+          wrapper.draw();
+
+          div_odi.style.display = 'block';
+          // div_t20.style.display = 'none';
+          // div_test.style.display = 'none';
+
+          var ele = document.getElementById('m1');
+          new change({i: ele.innerHTML, f: <%= p1.m %>, id: 'm1', time: 2000});
+
+          ele = document.getElementById('inn1');
+          new change({i: ele.innerHTML, f: <%= p1.inn %>, id: 'inn1', time: 2000});
+          
+          ele = document.getElementById('runs1');
+          new change({i: ele.innerHTML, f: <%= p1.runs %>, id: 'runs1', time: 2000});
+          
+          ele = document.getElementById('hs1');
+          new change({i: ele.innerHTML, f: <%= p1.hs %>, id: 'hs1', time: 2000});
+          
+          ele = document.getElementById('avg1');
+          new change({i: ele.innerHTML, f: <%= p1.avg %>, id: 'avg1', time: 2000});
+          
+          ele = document.getElementById('sr1');
+          new change({i: ele.innerHTML, f: <%= p1.sr %>, id: 'sr1', time: 2000});
+          
+          ele = document.getElementById('hundred1');
+          new change({i: ele.innerHTML, f: <%= p1.hundred %>, id: 'hundred1', time: 2000});
+          
+          ele = document.getElementById('dhundred1');
+          new change({i: ele.innerHTML, f: <%= p1.dhundred %>, id: 'dhundred1', time: 2000});
+          
+          ele = document.getElementById('fifty1');
+          new change({i: ele.innerHTML, f: <%= p1.fifty %>, id: 'fifty1', time: 2000});
+          
+          ele = document.getElementById('four1');
+          new change({i: ele.innerHTML, f: <%= p1.four %>, id: 'four1', time: 2000});
+          
+          ele = document.getElementById('six1');
+          new change({i: ele.innerHTML, f: <%= p1.six %>, id: 'six1', time: 2000});    
+          
+
+          var ele = document.getElementById('m2');
+          new change({i: ele.innerHTML, f: <%= p2.m %>, id: 'm2', time: 2000});
+
+          ele = document.getElementById('inn2');
+          new change({i: ele.innerHTML, f: <%= p2.inn %>, id: 'inn2', time: 2000});
+          
+          ele = document.getElementById('runs2');
+          new change({i: ele.innerHTML, f: <%= p2.runs %>, id: 'runs2', time: 2000});
+          
+          ele = document.getElementById('hs2');
+          new change({i: ele.innerHTML, f: <%= p2.hs %>, id: 'hs2', time: 2000});
+          
+          ele = document.getElementById('avg2');
+          new change({i: ele.innerHTML, f: <%= p2.avg %>, id: 'avg2', time: 2000});
+          
+          ele = document.getElementById('sr2');
+          new change({i: ele.innerHTML, f: <%= p2.sr %>, id: 'sr2', time: 2000});
+          
+          ele = document.getElementById('hundred2');
+          new change({i: ele.innerHTML, f: <%= p2.hundred %>, id: 'hundred2', time: 2000});
+          
+          ele = document.getElementById('dhundred2');
+          new change({i: ele.innerHTML, f: <%= p2.dhundred %>, id: 'dhundred2', time: 2000});
+          
+          ele = document.getElementById('fifty2');
+          new change({i: ele.innerHTML, f: <%= p2.fifty %>, id: 'fifty2', time: 2000});
+          
+          ele = document.getElementById('four2');
+          new change({i: ele.innerHTML, f: <%= p2.four %>, id: 'four2', time: 2000});
+          
+          ele = document.getElementById('six2');
+          new change({i: ele.innerHTML, f: <%= p2.six %>, id: 'six2', time: 2000}); 
         }
 
         function drawT20()
         {
           options['title'] = "Comparison in T20s";
-          var id1=<%= @idd1 %>;
-          var id2=<%= @idd2 %>;
-          var json1 = $.getJSON("http://localhost:3000/player/t20/"+id1+".json").done(function() {
 
-            var json2 = $.getJSON("http://localhost:3000/player/t20/"+id2+".json").done(function(){
-              console.log(" success ");
-              var data = 
-              [
-              ['Field', json1.responseJSON.name, json2.responseJSON.name,],
-              ['Strike Rate',json1.responseJSON.sr , json2.responseJSON.sr,],
-              ['Fours/10',(json1.responseJSON.four)/10, (json2.responseJSON.four)/10],
-              ['Sixes', json1.responseJSON.six, json2.responseJSON.six,],
-              ['Average',json1.responseJSON.avg, json2.responseJSON.avg,]
-              ];
-              wrapper.setChartType('ColumnChart');
-              wrapper.setDataTable(data);
-              wrapper.draw();
+          <% p1 = @player1.records.third %>
+          <% p2 = @player2.records.third %>
 
-              div_odi.style.display = 'none';
-              div_t20.style.display = 'block';
-              div_test.style.display = 'none';
-            });                
-          });
+          var data = 
+          [
+          ['Field', "<%= @player1.name %>", "<%= @player2.name %>",],
+          ['Strike Rate',<%= p1.sr %> , <%= p2.sr %>,],
+          ['Fours/10',(<%= p1.four %>)/10, (<%= p2.four %>)/10],
+          ['Sixes', <%= p1.six %>, <%= p2.six %>,],
+          ['Average',<%= p1.avg %>, <%= p2.avg %>,]
+          ];
+          wrapper.setChartType('ColumnChart');
+          wrapper.setDataTable(data);
+          wrapper.draw();
+          div_odi.style.display = 'block';
+          // div_t20.style.display = 'block';
+          // div_test.style.display = 'none';
+
+          var ele = document.getElementById('m1');
+          new change({i: ele.innerHTML, f: <%= p1.m %>, id: 'm1', time: 2000});
+
+          ele = document.getElementById('inn1');
+          new change({i: ele.innerHTML, f: <%= p1.inn %>, id: 'inn1', time: 2000});
+          
+          ele = document.getElementById('runs1');
+          new change({i: ele.innerHTML, f: <%= p1.runs %>, id: 'runs1', time: 2000});
+          
+          ele = document.getElementById('hs1');
+          new change({i: ele.innerHTML, f: <%= p1.hs %>, id: 'hs1', time: 2000});
+          
+          ele = document.getElementById('avg1');
+          new change({i: ele.innerHTML, f: <%= p1.avg %>, id: 'avg1', time: 2000});
+          
+          ele = document.getElementById('sr1');
+          new change({i: ele.innerHTML, f: <%= p1.sr %>, id: 'sr1', time: 2000});
+          
+          ele = document.getElementById('hundred1');
+          new change({i: ele.innerHTML, f: <%= p1.hundred %>, id: 'hundred1', time: 2000});
+          
+          ele = document.getElementById('dhundred1');
+          new change({i: ele.innerHTML, f: <%= p1.dhundred %>, id: 'dhundred1', time: 2000});
+          
+          ele = document.getElementById('fifty1');
+          new change({i: ele.innerHTML, f: <%= p1.fifty %>, id: 'fifty1', time: 2000});
+          
+          ele = document.getElementById('four1');
+          new change({i: ele.innerHTML, f: <%= p1.four %>, id: 'four1', time: 2000});
+          
+          ele = document.getElementById('six1');
+          new change({i: ele.innerHTML, f: <%= p1.six %>, id: 'six1', time: 2000});    
+          
+
+          var ele = document.getElementById('m2');
+          new change({i: ele.innerHTML, f: <%= p2.m %>, id: 'm2', time: 2000});
+
+          ele = document.getElementById('inn2');
+          new change({i: ele.innerHTML, f: <%= p2.inn %>, id: 'inn2', time: 2000});
+          
+          ele = document.getElementById('runs2');
+          new change({i: ele.innerHTML, f: <%= p2.runs %>, id: 'runs2', time: 2000});
+          
+          ele = document.getElementById('hs2');
+          new change({i: ele.innerHTML, f: <%= p2.hs %>, id: 'hs2', time: 2000});
+          
+          ele = document.getElementById('avg2');
+          new change({i: ele.innerHTML, f: <%= p2.avg %>, id: 'avg2', time: 2000});
+          
+          ele = document.getElementById('sr2');
+          new change({i: ele.innerHTML, f: <%= p2.sr %>, id: 'sr2', time: 2000});
+          
+          ele = document.getElementById('hundred2');
+          new change({i: ele.innerHTML, f: <%= p2.hundred %>, id: 'hundred2', time: 2000});
+          
+          ele = document.getElementById('dhundred2');
+          new change({i: ele.innerHTML, f: <%= p2.dhundred %>, id: 'dhundred2', time: 2000});
+          
+          ele = document.getElementById('fifty2');
+          new change({i: ele.innerHTML, f: <%= p2.fifty %>, id: 'fifty2', time: 2000});
+          
+          ele = document.getElementById('four2');
+          new change({i: ele.innerHTML, f: <%= p2.four %>, id: 'four2', time: 2000});
+          
+          ele = document.getElementById('six2');
+          new change({i: ele.innerHTML, f: <%= p2.six %>, id: 'six2', time: 2000});
+
         }
 
         function drawTest()
         {
           options['title'] = "Comparison in Tests";
-          var id1=<%= @idd1 %>;
-          var id2=<%= @idd2 %>;
-          var json1 = $.getJSON("http://localhost:3000/player/test/"+id1+".json").done(function() {
 
-            var json2 = $.getJSON("http://localhost:3000/player/test/"+id2+".json").done(function(){
-              console.log(" success ");
-              var data = 
-              [
-              ['Field', json1.responseJSON.name, json2.responseJSON.name,],
-              ['Strike Rate',json1.responseJSON.sr , json2.responseJSON.sr,],
-              ['Fours/10',(json1.responseJSON.four)/10, (json2.responseJSON.four)/10],
-              ['Sixes', json1.responseJSON.six, json2.responseJSON.six,],
-              ['Average',json1.responseJSON.avg, json2.responseJSON.avg,]
-              ];
-              wrapper.setChartType('ColumnChart');
-              wrapper.setDataTable(data);
-              wrapper.draw();
+          <% p1 = @player1.records.first %>
+          <% p2 = @player2.records.first %>
 
-              div_odi.style.display = 'none';
-              div_t20.style.display = 'none';
-              div_test.style.display = 'block';
-            });                
-          });
+          var data = 
+          [
+          ['Field', "<%= @player1.name %>", "<%= @player2.name %>",],
+          ['Strike Rate',<%= p1.sr %> , <%= p2.sr %>,],
+          ['Fours/10',(<%= p1.four %>)/10, (<%= p2.four %>)/10],
+          ['Sixes', <%= p1.six %>, <%= p2.six %>,],
+          ['Average',<%= p1.avg %>, <%= p2.avg %>,]
+          ];
+          wrapper.setChartType('ColumnChart');
+          wrapper.setDataTable(data);
+          wrapper.draw();
+
+          div_odi.style.display = 'block';
+          // div_t20.style.display = 'none';
+          // div_test.style.display = 'block';
+
+          var ele = document.getElementById('m1');
+          new change({i: ele.innerHTML, f: <%= p1.m %>, id: 'm1', time: 2000});
+
+          ele = document.getElementById('inn1');
+          new change({i: ele.innerHTML, f: <%= p1.inn %>, id: 'inn1', time: 2000});
+          
+          ele = document.getElementById('runs1');
+          new change({i: ele.innerHTML, f: <%= p1.runs %>, id: 'runs1', time: 2000});
+          
+          ele = document.getElementById('hs1');
+          new change({i: ele.innerHTML, f: <%= p1.hs %>, id: 'hs1', time: 2000});
+          
+          ele = document.getElementById('avg1');
+          new change({i: ele.innerHTML, f: <%= p1.avg %>, id: 'avg1', time: 2000});
+          
+          ele = document.getElementById('sr1');
+          new change({i: ele.innerHTML, f: <%= p1.sr %>, id: 'sr1', time: 2000});
+          
+          ele = document.getElementById('hundred1');
+          new change({i: ele.innerHTML, f: <%= p1.hundred %>, id: 'hundred1', time: 2000});
+          
+          ele = document.getElementById('dhundred1');
+          new change({i: ele.innerHTML, f: <%= p1.dhundred %>, id: 'dhundred1', time: 2000});
+          
+          ele = document.getElementById('fifty1');
+          new change({i: ele.innerHTML, f: <%= p1.fifty %>, id: 'fifty1', time: 2000});
+          
+          ele = document.getElementById('four1');
+          new change({i: ele.innerHTML, f: <%= p1.four %>, id: 'four1', time: 2000});
+          
+          ele = document.getElementById('six1');
+          new change({i: ele.innerHTML, f: <%= p1.six %>, id: 'six1', time: 2000});    
+          
+
+          var ele = document.getElementById('m2');
+          new change({i: ele.innerHTML, f: <%= p2.m %>, id: 'm2', time: 2000});
+
+          ele = document.getElementById('inn2');
+          new change({i: ele.innerHTML, f: <%= p2.inn %>, id: 'inn2', time: 2000});
+          
+          ele = document.getElementById('runs2');
+          new change({i: ele.innerHTML, f: <%= p2.runs %>, id: 'runs2', time: 2000});
+          
+          ele = document.getElementById('hs2');
+          new change({i: ele.innerHTML, f: <%= p2.hs %>, id: 'hs2', time: 2000});
+          
+          ele = document.getElementById('avg2');
+          new change({i: ele.innerHTML, f: <%= p2.avg %>, id: 'avg2', time: 2000});
+          
+          ele = document.getElementById('sr2');
+          new change({i: ele.innerHTML, f: <%= p2.sr %>, id: 'sr2', time: 2000});
+          
+          ele = document.getElementById('hundred2');
+          new change({i: ele.innerHTML, f: <%= p2.hundred %>, id: 'hundred2', time: 2000});
+          
+          ele = document.getElementById('dhundred2');
+          new change({i: ele.innerHTML, f: <%= p2.dhundred %>, id: 'dhundred2', time: 2000});
+          
+          ele = document.getElementById('fifty2');
+          new change({i: ele.innerHTML, f: <%= p2.fifty %>, id: 'fifty2', time: 2000});
+          
+          ele = document.getElementById('four2');
+          new change({i: ele.innerHTML, f: <%= p2.four %>, id: 'four2', time: 2000});
+          
+          ele = document.getElementById('six2');
+          new change({i: ele.innerHTML, f: <%= p2.six %>, id: 'six2', time: 2000});
         }
         drawOdi();
         odiButton.onclick = function()
