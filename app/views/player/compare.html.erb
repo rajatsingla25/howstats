@@ -1,54 +1,64 @@
 <% @title= "#{@player1.name} Vs #{@player2.name}"%>
-  <html>
-  <head>
-    <style type="text/css">
-      body{
-        font-family: Arial;
-        border: 0 none;
-        /*height: 600px;*/
-      }
-      #brand_div {
-        width: 100%; 
-        height: 100%;
-        background: url(assets/image3-e6e17229a3925b71f3a7409e6eb5c41421769c6d8a1143f61c955e4941e08142.jpg);
-      }
-      #vis_div {
-        width: 100%; 
-        height: 100%;
-      }
+<html>
+<head>
+  <style type="text/css">
+    html
+    {
+      overflow: auto;
+    }
+    body{
+      font-family: Arial;
+      border: 0 none;
+      height: 100vh;
+      /*height: 600px;*/
+    }
+    #brand_div {
+      width: 100%; 
+      height: 100vh;
+      background: url(assets/image3-e6e17229a3925b71f3a7409e6eb5c41421769c6d8a1143f61c955e4941e08142.jpg);
+    }
+    #vis_div {
+      width: 100%; 
+      height: 60vh;
+    }
+    .table
+    {
+      height: 20vh;
+    }
+    table 
+    {
+      text-align: center;
+      border-collapse: collapse;
+      width: 100%;
+      /*height: 20vh;*/
+      /*height: 18%;*/
+    }
+    table, th, td 
+    {
+     border: 1px solid black;
+    }
+    td:nth-child(even) 
+    {
+      background-color: #f2f2f2
+    }
+    th:nth-child(even) 
+    {
+      background-color: #f2f2f2
+    }
+    td
+    {
+      width: 8%;
+      /*height: 15px;*/
+    }
+    th
+    {
+      /*height: 50px;*/
+    }
 
-      table 
-      {
-        text-align: center;
-          border-collapse: collapse;
-          width: 100%;
-      }
-      table, th, td 
-      {
-         border: 1px solid black;
-      }
-      td:nth-child(even) 
-      {
-        background-color: #f2f2f2
-      }
-      th:nth-child(even) 
-      {
-        background-color: #f2f2f2
-      }
-      td
-      {
-        width: 8%;
-        height: 50px;
-      }
-      th
-      {
-        height: 50px;
-      }
-
-    </style>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script>
+  </style>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
       // change_value.js
       var change = function(config)
       {
@@ -159,13 +169,35 @@
     </script>
   </head>
   <body>
+<!-- 
+   <%if(!@p1OdiRecord.nil?&&!@p2OdiRecord.nil?)%>
    <input type = 'button' id = 'b1' value = 'ODIs' />
+   <%end%>
+   <%if(!@p1T20Record.nil?&&!@p2T20Record.nil?)%>
    <input type = 'button' id = 'b2' value = 'T20s' />
+   <%end%>
+   <%if(!@p1TestRecord.nil?&&!@p2TestRecord.nil?)%>
    <input type = 'button' id = 'b3' value = 'Tests' />
+   <%end%>
+   <%if(!@p1IplRecord.nil?&&!@p2IplRecord.nil?)%>
+   <input type = 'button' id = 'b4' value = 'IPLs' />
+   <%end%> -->
    <div id="brand_div">
+    <div id="header" style="height: 20vh"></div>
     <div id="vis_div"> </div>
-  </div>
-
+    <%if(!@p1OdiRecord.nil?&&!@p2OdiRecord.nil?)%>
+    <input type = 'button' id = 'b1' value = 'ODIs' />
+    <%end%>
+    <%if(!@p1T20Record.nil?&&!@p2T20Record.nil?)%>
+    <input type = 'button' id = 'b2' value = 'T20s' />
+    <%end%>
+    <%if(!@p1TestRecord.nil?&&!@p2TestRecord.nil?)%>
+    <input type = 'button' id = 'b3' value = 'Tests' />
+    <%end%>
+    <%if(!@p1IplRecord.nil?&&!@p2IplRecord.nil?)%>
+    <input type = 'button' id = 'b4' value = 'IPLs' />
+    <%end%>
+  
   <div class="table" id="odi_table">
     <table>
       <tr>
@@ -184,7 +216,7 @@
       </tr>
 
       <tr>
-        <% p1 = @player1.records.second %>
+        <!-- <% p1 = @player1.records.second %> -->
         <td><strong><%= @player1.name %></strong></td>
         <td id='m1'>0</td>
         <td id='inn1'>0</td>
@@ -200,7 +232,7 @@
       </tr>
 
       <tr>
-        <% p1 = @player2.records.second %>
+        <!-- <% p1 = @player2.records.second %> -->
         <td><strong><%= @player2.name %></strong></td>
         <td id='m2'>0</td>
         <td id='inn2'>0</td>
@@ -216,115 +248,12 @@
       </tr>
     </table>
   </div>
-
-  <!-- <div class="table" id="test_table">
-    <table>
-      <tr>
-        <th></th>
-        <th>Matches</th>
-        <th>Innings</th>
-        <th>Runs</th>
-        <th>Highest<br>Score</th>
-        <th>Avg</th>
-        <th>Strike Rate</th>
-        <th>Hundreds</th>
-        <th>Double<br>Hundreds</th>
-        <th>Fifty</th>
-        <th>Fours</th>
-        <th>Sixes</th>
-      </tr>
-
-      <tr>
-        <% p1 = @player1.records.first %>
-        <td><strong><%= @player1.name %></strong></td>
-        <td><%= p1.m %></td>
-        <td><%= p1.inn %></td>
-        <td><%= p1.runs %></td>
-        <td><%= p1.hs %></td>
-        <td><%= p1.avg %></td>
-        <td><%= p1.sr %></td>
-        <td><%= p1.hundred %></td>
-        <td><%= p1.dhundred %></td>
-        <td><%= p1.fifty %></td>
-        <td><%= p1.four %></td>
-        <td><%= p1.six %></td>
-      </tr>
-
-      <tr>
-        <% p1 = @player2.records.first %>
-        <td><strong><%= @player2.name %></strong></td>
-        <td><%= p1.m %></td>
-        <td><%= p1.inn %></td>
-        <td><%= p1.runs %></td>
-        <td><%= p1.hs %></td>
-        <td><%= p1.avg %></td>
-        <td><%= p1.sr %></td>
-        <td><%= p1.hundred %></td>
-        <td><%= p1.dhundred %></td>
-        <td><%= p1.fifty %></td>
-        <td><%= p1.four %></td>
-        <td><%= p1.six %></td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="table" id="t20_table">
-    <table>
-      <tr>
-        <th></th>
-        <th>Matches</th>
-        <th>Innings</th>
-        <th>Runs</th>
-        <th>Highest<br>Score</th>
-        <th>Avg</th>
-        <th>Strike Rate</th>
-        <th>Hundreds</th>
-        <th>Double<br>Hundreds</th>
-        <th>Fifty</th>
-        <th>Fours</th>
-        <th>Sixes</th>
-      </tr>
-
-      <tr>
-        <% p1 = @player1.records.third %>
-        <td><strong><%= @player1.name %></strong></td>
-        <td><%= p1.m %></td>
-        <td><%= p1.inn %></td>
-        <td><%= p1.runs %></td>
-        <td><%= p1.hs %></td>
-        <td><%= p1.avg %></td>
-        <td><%= p1.sr %></td>
-        <td><%= p1.hundred %></td>
-        <td><%= p1.dhundred %></td>
-        <td><%= p1.fifty %></td>
-        <td><%= p1.four %></td>
-        <td><%= p1.six %></td>
-      </tr>
-
-      <tr>
-        <% p1 = @player2.records.third %>
-        <td><strong><%= @player2.name %></strong></td>
-        <td><%= p1.m %></td>
-        <td><%= p1.inn %></td>
-        <td><%= p1.runs %></td>
-        <td><%= p1.hs %></td>
-        <td><%= p1.avg %></td>
-        <td><%= p1.sr %></td>
-        <td><%= p1.hundred %></td>
-        <td><%= p1.dhundred %></td>
-        <td><%= p1.fifty %></td>
-        <td><%= p1.four %></td>
-        <td><%= p1.six %></td>
-      </tr>
-    </table> -->
   </div>
 </body>
 
 
 <script type="text/javascript">
         var div_odi= document.getElementById('odi_table');
-        var div_t20= document.getElementById('t20_table');
-        var div_test= document.getElementById('test_table');
         google.charts.load('current');   // Don't need to specify chart libraries!
         google.charts.setOnLoadCallback(initialise);
 
@@ -350,15 +279,16 @@
         var odiButton = document.getElementById('b1');  
         var t20Button = document.getElementById('b2');  
         var testButton = document.getElementById('b3');  
+        var IplButton = document.getElementById('b4');  
         wrapper.setOptions(options);
 
         function drawOdi()
         {
           options['title'] = "Comparison in ODIs";
-
-          <% p1 = @player1.records.second %>
-          <% p2 = @player2.records.second %>
-
+          // console.log("Drawing");
+          <% p1 = @p1OdiRecord %>
+          <% p2 = @p2OdiRecord %>
+          <% if(p1 && p2) %>
           var data = 
           [
           ['Field', "<%= @player1.name %>", "<%= @player2.name %>",],
@@ -441,15 +371,18 @@
           
           ele = document.getElementById('six2');
           new change({i: ele.innerHTML, f: <%= p2.six %>, id: 'six2', time: 2000}); 
+          <%end%>
         }
 
         function drawT20()
         {
           options['title'] = "Comparison in T20s";
 
-          <% p1 = @player1.records.third %>
-          <% p2 = @player2.records.third %>
+          <% p1 = @p1T20Record %>
+          <% p2 = @p2T20Record %>
 
+          <% if(p1 && p2) %>
+          
           var data = 
           [
           ['Field', "<%= @player1.name %>", "<%= @player2.name %>",],
@@ -531,16 +464,17 @@
           
           ele = document.getElementById('six2');
           new change({i: ele.innerHTML, f: <%= p2.six %>, id: 'six2', time: 2000});
-
+          <%end%>
         }
 
         function drawTest()
         {
           options['title'] = "Comparison in Tests";
 
-          <% p1 = @player1.records.first %>
-          <% p2 = @player2.records.first %>
+          <% p1 = @p1TestRecord %>
+          <% p2 = @p2TestRecord %>
 
+          <% if(p1 && p2) %>
           var data = 
           [
           ['Field', "<%= @player1.name %>", "<%= @player2.name %>",],
@@ -551,6 +485,7 @@
           ];
           wrapper.setChartType('ColumnChart');
           wrapper.setDataTable(data);
+          console.log("Drawing Test");
           wrapper.draw();
 
           div_odi.style.display = 'block';
@@ -623,22 +558,137 @@
           
           ele = document.getElementById('six2');
           new change({i: ele.innerHTML, f: <%= p2.six %>, id: 'six2', time: 2000});
+          <%end%>
         }
+
+        function drawIPL()
+        {
+          options['title'] = "Comparison in IPL";
+
+          <% p1 = @p1IplRecord %>
+          <% p2 = @p2IplRecord %>
+
+          <% if(p1 && p2) %>
+          var data = 
+          [
+          ['Field', "<%= @player1.name %>", "<%= @player2.name %>",],
+          ['Strike Rate',<%= p1.sr %> , <%= p2.sr %>,],
+          ['Fours/10',(<%= p1.four %>)/10, (<%= p2.four %>)/10],
+          ['Sixes', <%= p1.six %>, <%= p2.six %>,],
+          ['Average',<%= p1.avg %>, <%= p2.avg %>,]
+          ];
+          wrapper.setChartType('ColumnChart');
+          wrapper.setDataTable(data);
+          console.log("Drawing IPL");
+
+          wrapper.draw();
+
+          div_odi.style.display = 'block';
+          // div_t20.style.display = 'none';
+          // div_test.style.display = 'block';
+
+          var ele = document.getElementById('m1');
+          new change({i: ele.innerHTML, f: <%= p1.m %>, id: 'm1', time: 2000});
+
+          ele = document.getElementById('inn1');
+          new change({i: ele.innerHTML, f: <%= p1.inn %>, id: 'inn1', time: 2000});
+          
+          ele = document.getElementById('runs1');
+          new change({i: ele.innerHTML, f: <%= p1.runs %>, id: 'runs1', time: 2000});
+          
+          ele = document.getElementById('hs1');
+          new change({i: ele.innerHTML, f: <%= p1.hs %>, id: 'hs1', time: 2000});
+          
+          ele = document.getElementById('avg1');
+          new change({i: ele.innerHTML, f: <%= p1.avg %>, id: 'avg1', time: 2000});
+          
+          ele = document.getElementById('sr1');
+          new change({i: ele.innerHTML, f: <%= p1.sr %>, id: 'sr1', time: 2000});
+          
+          ele = document.getElementById('hundred1');
+          new change({i: ele.innerHTML, f: <%= p1.hundred %>, id: 'hundred1', time: 2000});
+          
+          ele = document.getElementById('dhundred1');
+          new change({i: ele.innerHTML, f: <%= p1.dhundred %>, id: 'dhundred1', time: 2000});
+          
+          ele = document.getElementById('fifty1');
+          new change({i: ele.innerHTML, f: <%= p1.fifty %>, id: 'fifty1', time: 2000});
+          
+          ele = document.getElementById('four1');
+          new change({i: ele.innerHTML, f: <%= p1.four %>, id: 'four1', time: 2000});
+          
+          ele = document.getElementById('six1');
+          new change({i: ele.innerHTML, f: <%= p1.six %>, id: 'six1', time: 2000});    
+          
+
+          var ele = document.getElementById('m2');
+          new change({i: ele.innerHTML, f: <%= p2.m %>, id: 'm2', time: 2000});
+
+          ele = document.getElementById('inn2');
+          new change({i: ele.innerHTML, f: <%= p2.inn %>, id: 'inn2', time: 2000});
+          
+          ele = document.getElementById('runs2');
+          new change({i: ele.innerHTML, f: <%= p2.runs %>, id: 'runs2', time: 2000});
+          
+          ele = document.getElementById('hs2');
+          new change({i: ele.innerHTML, f: <%= p2.hs %>, id: 'hs2', time: 2000});
+          
+          ele = document.getElementById('avg2');
+          new change({i: ele.innerHTML, f: <%= p2.avg %>, id: 'avg2', time: 2000});
+          
+          ele = document.getElementById('sr2');
+          new change({i: ele.innerHTML, f: <%= p2.sr %>, id: 'sr2', time: 2000});
+          
+          ele = document.getElementById('hundred2');
+          new change({i: ele.innerHTML, f: <%= p2.hundred %>, id: 'hundred2', time: 2000});
+          
+          ele = document.getElementById('dhundred2');
+          new change({i: ele.innerHTML, f: <%= p2.dhundred %>, id: 'dhundred2', time: 2000});
+          
+          ele = document.getElementById('fifty2');
+          new change({i: ele.innerHTML, f: <%= p2.fifty %>, id: 'fifty2', time: 2000});
+          
+          ele = document.getElementById('four2');
+          new change({i: ele.innerHTML, f: <%= p2.four %>, id: 'four2', time: 2000});
+          
+          ele = document.getElementById('six2');
+          new change({i: ele.innerHTML, f: <%= p2.six %>, id: 'six2', time: 2000});
+          <%end%>
+        }
+
+        <%if(!@p1OdiRecord.nil?&&!@p2OdiRecord.nil?)%>
         drawOdi();
+        <%elsif(!@p1TestRecord.nil?&&!@p2TestRecord.nil?)%>
+        drawTest();
+        <%elsif(!@p1T20Record.nil?&&!@p2T20Record.nil?)%>
+        drawT20();
+        <%elsif(!@p1IplRecord.nil?&&!@p2IplRecord.nil?)%>
+        drawIPL();
+        <%end%>
+        if(odiButton)
         odiButton.onclick = function()
         {
           drawOdi();
         }
 
+        if(t20Button)
         t20Button.onclick = function()
         {
           drawT20();
         }
 
+        if(testButton)
         testButton.onclick = function()
         {
           drawTest();
         }
+
+        if(IplButton)
+        IplButton.onclick = function()
+        {
+          drawIPL();
+        }
+
       }
     </script>
     </html>

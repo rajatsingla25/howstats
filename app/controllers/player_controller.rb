@@ -1,19 +1,22 @@
 class PlayerController < ApplicationController
 
 	# autocomplete :Player , :name ,full: true
-
+	before_action :set_players, only: [:compare]
+	before_action :set_records, only: [:compare]
 	def odi_info
 		@player = Player.find_by_webId(params[:id])
 		respond_to do |format|
 		format.json { 
 			# render :json => {@player.records.first (:only => [:four,:six,:sr,:avg]),@player(:only => [:name])}
 			#render :json => { @player.records.first , @player }
-			json2 = @player.records.second.to_json(:only => [:four,:six,:sr,:avg])  
+			#json2 = @player.odirecord.to_json(:only => [:four,:six,:sr,:avg])
+			json2 = @player.odirecord.to_json(:except => [:created_at,:updated_at])  
 			json1= @player.to_json(:only => [:name]) 
 			json1[json1.length()-1]=""
 			json2[0]=","
 			render :json => json1+json2
 		}
+		#render json: @player
 	    end
 	end
 	 def autocomplete_player_name
@@ -24,11 +27,21 @@ class PlayerController < ApplicationController
 
 
 	# end
+	def player_info
+		@player = Player.find_by_webId(params[:id])
+		respond_to do |format|
+		format.json { 
+			json2 = @player.to_json(:except => [:created_at,:updated_at])  
+			
+			render :json => json2
+		}
+	    end
+	end
 	def t20_info
 		@player = Player.find_by_webId(params[:id])
 		respond_to do |format|
 		format.json { 
-			json2 = @player.records.third.to_json(:only => [:four,:six,:sr,:avg])  
+			json2 = @player.twentyrecord.to_json(:except => [:created_at,:updated_at])  
 			json1= @player.to_json(:only => [:name]) 
 			json1[json1.length()-1]=""
 			json2[0]=","
@@ -40,7 +53,19 @@ class PlayerController < ApplicationController
 		@player = Player.find_by_webId(params[:id])
 		respond_to do |format|
 		format.json { 
-			json2 = @player.records.first.to_json(:only => [:four,:six,:sr,:avg])  
+			json2 = @player.testrecord.to_json(:except => [:created_at,:updated_at])  
+			json1= @player.to_json(:only => [:name]) 
+			json1[json1.length()-1]=""
+			json2[0]=","
+			render :json => json1+json2
+		}
+	    end
+	end
+	def ipl_info
+		@player = Player.find_by_webId(params[:id])
+		respond_to do |format|
+		format.json { 
+			json2 = @player.iplrecord.to_json(:except => [:created_at,:updated_at])  
 			json1= @player.to_json(:only => [:name]) 
 			json1[json1.length()-1]=""
 			json2[0]=","
@@ -54,10 +79,23 @@ class PlayerController < ApplicationController
 
 	def compare
 		puts params[:p1]
-		@player1 = Player.where("name LIKE '%#{params[:p1]}%'").first
-		@player2 = Player.where("name LIKE '%#{params[:p2]}%'").first
+		
 		@idd1 = @player1.webId
 		@idd2 = @player2.webId
 	end
+	def set_players
+		@player1 = Player.where("name LIKE '%#{params[:p1]}%'").first
+		@player2 = Player.where("name LIKE '%#{params[:p2]}%'").first
+	end
+	 def set_records
+	 	@p1TestRecord =@player1.testrecord
+	 	@p1OdiRecord =@player1.odirecord
+	 	@p1T20Record =@player1.twentyrecord
+	 	@p2TestRecord =@player2.testrecord
+	 	@p2OdiRecord =@player2.odirecord
+	 	@p2T20Record =@player2.twentyrecord
+	 	@p1IplRecord =@player1.iplrecord
+	 	@p2IplRecord =@player2.iplrecord
+	 end
 
 end

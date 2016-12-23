@@ -1,54 +1,121 @@
-<!-- home.html.erb -->
-<!-- <form accept-charset="UTF-8" action="/home" method="post">
-  Enter Player 1:	
-  <input name="Player1" type="string" />
-  Enter Player 2:
-  <input name="Player 2" type="string" />
-  <input name="Submit" type="button" value="Submit" />
-</form> -->
 <% @title = "Player Fight!" %>
 <style>
-.ui-helper-hidden-accessible { display:none; }
+.ui-autocomplete {
+    position: absolute;
+    z-index: 1000;
+    cursor: default;
+    padding: 0;
+    margin-top: 2px;
+    list-style: none;
+    background-color: #ffffff;
+    border: 1px solid #ccc
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+       -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.ui-menu-item{
+  text-align: center;
+vertical-align: middle;
+line-height: 40px;  
+}
+ 
+.ui-autocomplete > li {
+  padding: 3px 20px;
+}
+.ui-autocomplete > li.ui-state-focus {
+  background-color: #DDD;
+}
+.ui-helper-hidden-accessible {
+  display: none;
+}
+.ui-helper-hidden-accessible ,#submitbtn{
+ display:none; 
+}
 </style>
-<h1>PLAYER FIGHT!</h1>
-<br>
-<%= form_tag("/compare", method: "get") do %>
+<div class="container">
+  <!-- // -->
+  <div class="row">
+   <h1>PLAYER FIGHT!</h1>
+  <div class="col l4">
+          <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator circle" id="img-1" style="overflow: hidden " src="/images/vk.jpg">
+          </div>
+          <div class="card-content">
+ 
+           <div class="row card-title activator grey-text text-darken-4">
+              <div class="col s12">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons right">more_vert</i>
+                    <input type="text" id="autocomplete-input-1" class="autocomplete">
+                    <label for="autocomplete-input-1">Autocomplete</label>
+ 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <div class="card-reveal">
+                      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                    </div>
+        </div>
+  </div>
+  <div class="col l2">
+    <h2 class="center-align">Vs</h2>
+    </div>
+  <div class="col l4">
+          <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" id="id-2" style="overflow: hidden " src="/images/vk.jpg">
+          </div>
+          <div class="card-content">
+ 
+           <div class="row card-title activator grey-text text-darken-4">
+              <div class="col s12">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons right">more_vert</i>
+                    <input type="text" id="autocomplete-input-2" class="autocomplete">
+                    <label for="autocomplete-input-2">Autocomplete</label>
+ 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <div class="card-reveal">
+                      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                    </div>
+        </div>
+  </div>
+  </div>
+ 
+  <!-- // -->
   
-  <h3>Player 1</h3>
-  <%= label_tag(:p1, "Player 1") %>
-  
-  <%= text_field_tag(:p1) %>
-  <br><br>
-
-  <h2>Vs</h2>
-  <br>
-
-  <h3>Player 2</h3>
-  <%= label_tag(:p2, "Player 2") %>
-  <%= text_field_tag(:p2) %>
-  <br><br>
-
-  <%= submit_tag("Submit") %>
-<% end %>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+ 
 <script type="text/javascript">
-
 var autocompletes = (function(){
+  var first=0,second=0;
       function player_search_autocomplete(){
           $(document).ready(function() {
-              $('#p1').autocomplete({ 
+             
+              $('#autocomplete-input-1').autocomplete({
                   source: function(request,response){
                       $.ajax({
                           method: 'GET',
-                          url : '/players/autocomplete_player_name?term=' + $('#p1').val(),
+                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input-1').val(),
                           dataType : 'json',
                           success : function(data) {
-                            data = data.slice(0,3);
+                            data = data.slice(0,4);
                                response($.map(data,function(v,i) {
                                 var playerName =  v.name;
-
+ 
                                 return {
                                     id: v.webId,
                                     label: playerName,
@@ -59,24 +126,37 @@ var autocompletes = (function(){
                     });
                 },
                 open: function() {
-                    var width = $('#p1').width() + 22;
-                    $('.ui-menu-item').width(width);
-                  },
-                select: function() {
                    
+                  },
+                select: function(e,ui) {
+                   first=1;
+                   console.log(ui.item.id);
+                   var url="http://i.cricketcb.com/stats/img/faceImages/"+ui.item.id+".jpg";
+                   $("#img-1").attr('src',url);
+                   if(second == 1){
+                       first=second=0;
+                      // setTimeout(function(){$('#submitbtn').click();}, 1500);
+                       
+                     }
                 }
-            });
-            $('#p2').autocomplete({ 
+            }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+  return $( "<li>" )
+    .data( "ui-autocomplete-item", item )
+    .append( "<div style='height:100px'><img src='http://i.cricketcb.com/stats/img/faceImages/"+item.id+".jpg' class='center circle' style='height:60px ;width:60px'>"+"<br><h6>"+item.label+"</h6></div>"  )
+    .appendTo(ul);
+};
+ 
+            $('#autocomplete-input-2').autocomplete({
                   source: function(request,response){
                       $.ajax({
                           method: 'GET',
-                          url : '/players/autocomplete_player_name?term=' + $('#p2').val(),
+                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input-2').val(),
                           dataType : 'json',
                           success : function(data) {
-                            data = data.slice(0,3);
+                            data = data.slice(0,4);
                                response($.map(data,function(v,i) {
                                 var playerName =  v.name;
-
+ 
                                 return {
                                     id: v.webId,
                                     label: playerName,
@@ -87,13 +167,24 @@ var autocompletes = (function(){
                     });
                 },
                 open: function() {
-                    var width = $('#p2').width() + 22;
-                    $('.ui-menu-item').width(width);
-                  },
-                select: function() {
                    
+                  },
+                select: function(event,ui) {
+ 
+                   second=1;
+                   setTimeout(function(){}, 3000);
+ 
+                   if(first == 1){
+                       first=second=0;
+             //          setTimeout(function(){$('#submitbtn').click();}, 1500);
+                     }
                 }
-            });
+            }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+                  return $( "<li>" )
+                    .data( "ui-autocomplete-item", item )
+                    .append( "<div style='height:100px'><img src='http://i.cricketcb.com/stats/img/faceImages/"+item.id+".jpg' class='center circle' style='height:60px ;width:60px'>"+"<br><h6>"+item.label+"</h6></div>"  )
+                    .appendTo(ul);
+                };
         });
     }
     return {
@@ -103,11 +194,9 @@ var autocompletes = (function(){
       };
 });
 function init(){
-  
+ 
   autocompletes().init();
-
+ 
 }
-
-
 window.addEventListener('load',init);
 </script>

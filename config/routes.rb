@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 get '/player/odi/:id' => 'player#odi_info'
+get '/player/ipl/:id' => 'player#ipl_info'
 get '/player/test/:id' => 'player#test_info'
 get '/player/t20/:id' => 'player#t20_info'
+get '/player/:id' => 'player#player_info'
 get '/compare/:id1/:id2' => 'player#compare'
 get '/compare' => 'player#compare'
 get '/home' => 'player#home'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201120625) do
+ActiveRecord::Schema.define(version: 20161222090346) do
 
   create_table "iplrecords", force: :cascade do |t|
     t.integer  "m"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20161201120625) do
     t.integer  "st"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "player_id"
   end
 
   create_table "odirecords", force: :cascade do |t|
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20161201120625) do
     t.integer  "st"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "player_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -116,6 +118,7 @@ ActiveRecord::Schema.define(version: 20161201120625) do
     t.integer  "st"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "player_id"
   end
 
 end
