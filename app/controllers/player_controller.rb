@@ -98,4 +98,5 @@ class PlayerController < ApplicationController
 	 	@p2IplRecord =@player2.iplrecord
 	 end
 
+
 end

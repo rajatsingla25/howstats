@@ -38,11 +38,14 @@ line-height: 40px;
 <div class="container">
   <!-- // -->
   <div class="row">
-   <h1>PLAYER FIGHT!</h1>
+  <div class="col l4 offset-l4">
+   <h1 class="center-align">PLAYER FIGHT!</h1>
+  </div>
+  <div class="col l4" style="width: 100%;"></div>
   <div class="col l4">
-          <div class="card">
+          <div class="card" style="padding: 5px">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator circle" id="img-1" style="overflow: hidden " src="/images/vk.jpg">
+            <img class="activator center circle" id="img-1" style="overflow: hidden;border-radius: 50% " src="/images/vk.jpg">
           </div>
           <div class="card-content">
  
@@ -65,13 +68,13 @@ line-height: 40px;
                     </div>
         </div>
   </div>
-  <div class="col l2">
-    <h2 class="center-align">Vs</h2>
-    </div>
   <div class="col l4">
-          <div class="card">
+    <h2 class="center-align">Vs</h2>
+  </div>
+  <div class="col l4">
+          <div class="card" style="padding: 5px">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" id="id-2" style="overflow: hidden " src="/images/vk.jpg">
+            <img class="activator" id="img-2" style="overflow: hidden;border-radius: 50% " src="/images/vk.jpg">
           </div>
           <div class="card-content">
  
@@ -93,6 +96,7 @@ line-height: 40px;
                       <p>Here is some more information about this product that is only revealed once clicked on.</p>
                     </div>
         </div>
+  </div>
   </div>
   </div>
  
@@ -172,8 +176,10 @@ var autocompletes = (function(){
                 select: function(event,ui) {
  
                    second=1;
-                   setTimeout(function(){}, 3000);
- 
+                   console.log(ui);
+                  // setTimeout(function(){}, 3000);
+                   var url="http://i.cricketcb.com/stats/img/faceImages/"+ui.item.id+".jpg";
+                   $("#img-2").attr('src',url);
                    if(first == 1){
                        first=second=0;
              //          setTimeout(function(){$('#submitbtn').click();}, 1500);
