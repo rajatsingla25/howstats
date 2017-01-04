@@ -31,7 +31,7 @@ line-height: 40px;
 .ui-helper-hidden-accessible {
   display: none;
 }
-.ui-helper-hidden-accessible ,#submitbtn{
+.ui-helper-hidden-accessible {
  display:none; 
 }
 </style>
@@ -68,8 +68,11 @@ line-height: 40px;
                     </div>
         </div>
   </div>
-  <div class="col l4">
-    <h2 class="center-align">Vs</h2>
+  <div class="col l4 center-align">
+    
+    <a href="javascript:;" id="submitbtn" class="waves-effect waves-light btn center-align" style="margin-top: 130px;" onclick="compareClicked()">Let the battle begin!</a>
+
+
   </div>
   <div class="col l4">
           <div class="card" style="padding: 5px">
@@ -139,7 +142,7 @@ var autocompletes = (function(){
                    $("#img-1").attr('src',url);
                    if(second == 1){
                        first=second=0;
-                      // setTimeout(function(){$('#submitbtn').click();}, 1500);
+                       setTimeout(function(){$('#submitbtn').click();}, 1500);
                        
                      }
                 }
@@ -182,7 +185,7 @@ var autocompletes = (function(){
                    $("#img-2").attr('src',url);
                    if(first == 1){
                        first=second=0;
-             //          setTimeout(function(){$('#submitbtn').click();}, 1500);
+                      setTimeout(function(){$('#submitbtn').click();}, 1500);
                      }
                 }
             }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
@@ -205,4 +208,13 @@ function init(){
  
 }
 window.addEventListener('load',init);
+function compareClicked(argument) {
+  // body...
+  var name1=$('#autocomplete-input-1').val();
+  var name2=$('#autocomplete-input-2').val();
+  var url="http://localhost:3000/compare/"+name1+"/"+name2;
+  console.log(url);
+  window.location.href=url;
+
+}
 </script>

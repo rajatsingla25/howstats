@@ -84,8 +84,9 @@ class PlayerController < ApplicationController
 		@idd2 = @player2.webId
 	end
 	def set_players
-		@player1 = Player.where("name LIKE '%#{params[:p1]}%'").first
-		@player2 = Player.where("name LIKE '%#{params[:p2]}%'").first
+		@player1 = Player.where("name LIKE '%#{params[:id1]}%'").first
+		@player2 = Player.where("name LIKE '%#{params[:id2]}%'").first
+		
 	end
 	 def set_records
 	 	@p1TestRecord =@player1.testrecord

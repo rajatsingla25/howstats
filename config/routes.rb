@@ -12,6 +12,7 @@ get '/player/:id' => 'player#player_info'
 get '/compare/:id1/:id2' => 'player#compare'
 get '/compare' => 'player#compare'
 get '/home' => 'player#home'
+
 # match get '/player/search/autocomplete?term=:id' => 'player#searchList'
 
 # resources :players do
