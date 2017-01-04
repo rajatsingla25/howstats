@@ -120,8 +120,46 @@
 # 		end 
 # 	end
 # end
-@all_players=Player.all
-@all_players.each do |p|
-	p.webId=p.webId-1
-	p.save
+# @all_players=Player.all
+# @all_players.each do |p|
+
+# 	p.webId=p.webId-1
+# 	p.save
+#  end
+ # for i in 5000..5001
+ # 	p=Player.find_by_webId(i)
+ # 	if p.nil?
+	# 	next
+	# end
+	# p.webId=p.webId-1
+	# p.save
+ # end
+browser = Watir::Browser.new(:phantomjs)
+for i in 1910..5000 
+	puts(i)
+	player=Player.find_by_webId(i)
+	if player.nil?
+		next
+		
+	end
+	url="http://www.cricbuzz.com/profiles/" + i.to_s
+	sleep(1)
+	browser.goto(url)
+	doc1=Nokogiri::HTML.parse(browser.html)
+	player.country=doc1.css(".cb-font-18 span").text
+	player.Born=doc1.css(".cb-lst-itm-sm:nth-child(3)").text
+	player.birth=doc1.css(".cb-lst-itm-sm:nth-child(5)").text
+	player.nickname=doc1.css(".cb-lst-itm-sm:nth-child(7)").text
+	player.height=doc1.css(".cb-lst-itm-sm:nth-child(9)").text
+	player.role=doc1.css(".cb-lst-itm-sm:nth-child(11)").text
+	player.batStyle=doc1.css(".cb-lst-itm-sm:nth-child(13)").text
+	player.bowlStyle=doc1.css(".cb-lst-itm-sm:nth-child(15)").text
+	player.debut=doc1.css(".cb-lst-itm-sm:nth-child(32)").text
+	player.lastMatch=doc1.css(".cb-lst-itm-sm:nth-child(34)").text
+	player.currentTeams=doc1.css(".cb-lst-itm-sm:nth-child(36)").text
+	player.save
+	
+
+
+
 end

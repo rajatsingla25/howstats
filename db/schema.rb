@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222090346) do
+ActiveRecord::Schema.define(version: 20170104133411) do
 
   create_table "iplrecords", force: :cascade do |t|
     t.integer  "m"
@@ -53,12 +53,8 @@ ActiveRecord::Schema.define(version: 20161222090346) do
     t.integer  "player_id"
   end
 
-  create_table "players", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "webId"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "players" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "records", force: :cascade do |t|
     t.string   "name"

@@ -1,7 +1,7 @@
 namespace :updateData do
 	task :update => :environment do
 			browser = Watir::Browser.new(:phantomjs)
-			for i in 1911..5000
+			for i in 4402..5000
 				url="http://www.cricbuzz.com/profiles/" + i.to_s
 				doc1=Nokogiri::HTML.parse(browser.html)
 			    browser.goto(url)
