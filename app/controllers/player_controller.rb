@@ -3,6 +3,8 @@ class PlayerController < ApplicationController
 	# autocomplete :Player , :name ,full: true
 	before_action :set_players, only: [:compare]
 	before_action :set_records, only: [:compare]
+	before_action :set_player, only: [:profile]
+	before_action :set_country, only: [:country]
 	def odi_info
 		@player = Player.find_by_webId(params[:id])
 		respond_to do |format|
@@ -83,9 +85,26 @@ class PlayerController < ApplicationController
 		@idd1 = @player1.webId
 		@idd2 = @player2.webId
 	end
+	def profile
+		@id=@player.webId
+		
+	end
+	def country
+		
+		
+	end
+	def set_player
+		@player = Player.where("name LIKE '%#{params[:id]}%'").first
+		
+	end
 	def set_players
 		@player1 = Player.where("name LIKE '%#{params[:id1]}%'").first
 		@player2 = Player.where("name LIKE '%#{params[:id2]}%'").first
+		
+	end
+	def set_country
+		@country = Country.where("name LIKE '%#{params[:id]}%'").first
+		
 		
 	end
 	 def set_records

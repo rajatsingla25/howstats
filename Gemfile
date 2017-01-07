@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
-
+gem 'materialize-sass'
 gem 'pry-rails'
 gem 'rails4-autocomplete'
 gem 'yaml_db'
 gem 'watir'
 gem "jquery-ui-rails"
+gem 'chart-js-rails'
+gem 'chartjs-ror'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'
 # Use sqlite3 as the database for Active Record

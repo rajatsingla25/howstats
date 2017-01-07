@@ -10,6 +10,8 @@ get '/player/test/:id' => 'player#test_info'
 get '/player/t20/:id' => 'player#t20_info'
 get '/player/:id' => 'player#player_info'
 get '/compare/:id1/:id2' => 'player#compare'
+get '/profile/:id' => 'player#profile', as: :profile
+get '/country/:id' => 'player#country', as: :country
 get '/compare' => 'player#compare'
 get '/home' => 'player#home'
 

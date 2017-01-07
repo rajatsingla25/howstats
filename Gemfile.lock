@@ -41,6 +41,10 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (9.0.6)
+    chart-js-rails (0.0.6)
+      railties (> 3.1)
+    chartjs-ror (3.0.2)
+      rails (>= 3.1)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.1)
@@ -73,6 +77,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    materialize-sass (0.97.7)
+      sass (~> 3.3)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -172,10 +178,13 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  chart-js-rails
+  chartjs-ror
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
+  materialize-sass
   pry-rails
   rails (= 4.2.7.1)
   rails4-autocomplete

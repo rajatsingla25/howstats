@@ -1,0 +1,257 @@
+ 
+<div class="container">
+
+	 <div class="col s12 m7">
+    
+        <div class="card horizontal ">
+          <div class="card-image " style="width: 30%">
+            <%str="http://i.cricketcb.com/stats/img/faceImages/"+@id.to_s+".jpg"%>
+            <img style="width: 100%" src=<%=str%>>
+            
+            <h5 style="text-align: center;"><%=@player.name%></h5>
+            <h6 style="text-align: center;"><%=@player.country%></h6>
+          </div>
+         
+          <div class="card-stacked ">
+            <div class="card-content">
+               <ul class="collapsible" data-collapsible="accordion">
+                  <li>
+                    <div class="collapsible-header active"><i class="material-icons">filter_drama</i>OdiRecord</div>
+                    
+                    <div class="collapsible-body">
+                        <div class="row">
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">MATCHES</div>
+                                            <div class="stats-container"><%=@player.odirecord.m%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">RUNS</div>
+                                            <div class="stats-container"><%=@player.odirecord.runs%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">AVERAGE</div>
+                                            <div class="stats-container"><%=@player.odirecord.avg%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">HIGHEST</div>
+                                            <div class="stats-container"><%=@player.odirecord.hs%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">STRIKE RATE</div>
+                                            <div class="stats-container"><%=@player.odirecord.sr%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                  </li>
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>TestRecord</div>
+                    
+                    <div class="collapsible-body">
+                        <div class="row">
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">MATCHES</div>
+                                            <div class="stats-container"><%=@player.testrecord.m%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">RUNS</div>
+                                            <div class="stats-container"><%=@player.testrecord.runs%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">AVERAGE</div>
+                                            <div class="stats-container"><%=@player.testrecord.avg%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">HIGHEST</div>
+                                            <div class="stats-container"><%=@player.testrecord.hs%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">STRIKE RATE</div>
+                                            <div class="stats-container"><%=@player.testrecord.sr%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                  </li>
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>T20Record</div>
+                    
+                    <div class="collapsible-body">
+                        <div class="row">
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">MATCHES</div>
+                                            <div class="stats-container"><%=@player.twentyrecord.m%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">RUNS</div>
+                                            <div class="stats-container"><%=@player.twentyrecord.runs%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">AVERAGE</div>
+                                            <div class="stats-container"><%=@player.twentyrecord.avg%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">HIGHEST</div>
+                                            <div class="stats-container"><%=@player.twentyrecord.hs%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">STRIKE RATE</div>
+                                            <div class="stats-container"><%=@player.twentyrecord.sr%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                  </li>
+               </ul>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+    </div>
+  </div>
+  <div class="col l12">
+       <ul class="collapsible" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header active"><i class="material-icons">filter_drama</i>BASIC INFO</div>
+            <div class="collapsible-body">
+              <div class="row">
+                <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">Born</div>
+                                            <div class="stats-container"><%=@player.Born%>
+                                          
+                                            </div>
+                              </div>
+                </div>
+                <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">Birth Place</div>
+                                            <div class="stats-container"><%=@player.birth%>
+                                          
+                                            </div>
+                              </div>
+                </div>
+                <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">Height</div>
+                                            <div class="stats-container"><%=@player.height%>
+                                          
+                                            </div>
+                              </div>
+                </div>
+                <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">Nickname</div>
+                                            <div class="stats-container"><%=@player.nickname%>
+                                          
+                                            </div>
+                              </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header active"><i class="material-icons">filter_drama</i>CAREER INFO</div>
+            <div class="collapsible-body">
+              <div class="row">
+                <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">Role</div>
+                                            <div class="stats-container"><%=@player.role%>
+                                          
+                                            </div>
+                              </div>
+                </div>
+                <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">Batting Style</div>
+                                            <div class="stats-container"><%=@player.batStyle%>
+                                          
+                                            </div>
+                              </div>
+                </div>
+                <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">Bowling Style</div>
+                                            <div class="stats-container"><%=@player.bowlStyle%>
+                                          
+                                            </div>
+                              </div>
+                </div>
+                <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">Current Teams</div>
+                                            <div class="stats-container"><%=@player.currentTeams%>
+                                          
+                                            </div>
+                              </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          
+        </ul>
+    
+  </div>
+</div>

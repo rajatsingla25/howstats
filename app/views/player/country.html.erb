@@ -1,0 +1,29 @@
+
+<!-- <script type="text/javascript">
+	$('.carousel').carousel();
+</script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<div class="container">
+	<div class="row">
+		<div class="carousel">
+			<%@country.players.each do |a|%>
+			<%str="http://i.cricketcb.com/stats/img/faceImages/"+a.webId.to_s+".jpg"%>
+			<%str1="/profile/"+a.name%>
+		    <a data-no-turbolink='false' class="carousel-item" href=<%=str1%>><img src=<%=str%>></a>
+		    <%end%>
+		    
+		  </div>
+		
+	</div>
+	
+</div>
+<script type="text/javascript">
+	 $(document).ready(function(){
+	 	console.log("hell");
+      $('.carousel').carousel();
+	 
+	 console.log('hello1');
+    });
+
+</script>
+

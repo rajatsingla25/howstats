@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+// Mixins
+// @import "materialize/components/prefixer";
+@import "materialize/components/mixins";
+@import "materialize/components/color";
+
+// Variables;
+@import "materialize/components/variables";
+
+// Reset
+@import "materialize/components/normalize";
+
+// materialize/components
+@import "materialize/components/global";
+@import "materialize/components/icons-material-design";
+@import "materialize/components/grid";
+@import "materialize/components/navbar";
+@import "materialize/components/roboto";
+@import "materialize/components/typography";
+@import "materialize/components/cards";
+@import "materialize/components/toast";
+@import "materialize/components/tabs";
+@import "materialize/components/tooltip";
+@import "materialize/components/buttons";
+@import "materialize/components/dropdown";
+@import "materialize/components/waves";
+@import "materialize/components/modal";
+@import "materialize/components/collapsible";
+@import "materialize/components/chips";
+@import "materialize/components/materialbox";
+@import "materialize/components/forms/forms";
+@import "materialize/components/table_of_contents";
+@import "materialize/components/sideNav";
+@import "materialize/components/preloader";
+@import "materialize/components/slider";
+@import "materialize/components/carousel";
+@import "materialize/components/date_picker/default";
+@import "materialize/components/date_picker/default.date";
+@import "materialize/components/date_picker/default.time";
+@import "materialize/extras/nouislider";
+html {
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  }
+*{
+	margin: 0
+}
+#DNAV{
+	transition: 0.5s height;
+}
+#NAV{
+	transition: 0.5s height;
+}
+#mainText{
+	transition: 0.5s line-height;
+}
+.navMain{
+	background-color: white;
+}
+body{
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.stats-header{
+	height:25px;
+	background-color:#363636;
+	color:white
+}
+.stats-wrapper{
+	height:85px;
+}
+.stats-container{
+	height:60px;
+	background-color:#e2eefb;
+}

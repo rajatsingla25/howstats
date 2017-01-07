@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104133411) do
+ActiveRecord::Schema.define(version: 20170106072649) do
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "iplrecords", force: :cascade do |t|
     t.integer  "m"
@@ -53,8 +59,23 @@ ActiveRecord::Schema.define(version: 20170104133411) do
     t.integer  "player_id"
   end
 
-# Could not dump table "players" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "players", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "webId"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "Born"
+    t.string   "nickname"
+    t.string   "height"
+    t.srting   "role"
+    t.string   "batStyle"
+    t.string   "bowlStyle"
+    t.string   "debut"
+    t.string   "lastMatch"
+    t.string   "currentTeams"
+    t.string   "country"
+
+  end
 
   create_table "records", force: :cascade do |t|
     t.string   "name"
