@@ -41,6 +41,24 @@
               </div>
             </div>
           </div>
+          <div id="all-buttons" class="col l12"> 
+             <%if(!@p1OdiRecord.nil?&&!@p2OdiRecord.nil?)%>
+              <!-- <input type = 'button' id = 'b1' value = 'ODIs' /> -->
+              <a class="waves-effect waves-light btn" id="b1">ODI</a>
+              <%end%>
+              <%if(!@p1T20Record.nil?&&!@p2T20Record.nil?)%>  
+              <a class="waves-effect waves-light btn" id="b2">T20</a>
+              <!-- <input type = 'button' id = 'b2' value = 'T20s' /> -->
+              <%end%>
+              <%if(!@p1TestRecord.nil?&&!@p2TestRecord.nil?)%>
+              <!-- <input type = 'button' id = 'b3' value = 'Tests' /> -->
+              <a class="waves-effect waves-light btn" id="b3">Test</a>
+              <%end%>
+              <%if(!@p1IplRecord.nil?&&!@p2IplRecord.nil?)%>
+              <a class="waves-effect waves-light btn" id="b4">IPL</a>
+              <!-- <input type = 'button' id = 'b4' value = 'IPLs' /> -->
+              <%end%>
+             </div>
           <div class="col l12" style="margin-bottom:20px;margin-top:20px">
             <canvas id="myChart1" ></canvas>
           </div>
@@ -54,21 +72,7 @@
      
    </div>
  
-   <%if(!@p1OdiRecord.nil?&&!@p2OdiRecord.nil?)%>
-    <input type = 'button' id = 'b1' value = 'ODIs' />
-    <%end%>
-    <%if(!@p1T20Record.nil?&&!@p2T20Record.nil?)%>
-    <input type = 'button' id = 'b2' value = 'T20s' />
-    <%end%>
-    <%if(!@p1TestRecord.nil?&&!@p2TestRecord.nil?)%>
-    <input type = 'button' id = 'b3' value = 'Tests' />
-    <%end%>
-    <%if(!@p1IplRecord.nil?&&!@p2IplRecord.nil?)%>
-    <input type = 'button' id = 'b4' value = 'IPLs' />
-    <%end%>
-   
 
- 
     
 <script>
 

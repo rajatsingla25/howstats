@@ -5,4 +5,7 @@ class Player < ActiveRecord::Base
 	has_one :odirecord
 	has_many :records
 	belongs_to :counrty ,:foreign_key => :name ,:primary_key => :name
+
+	extend FriendlyId
+		friendly_id :name, use: :slugged
 end

@@ -24,7 +24,7 @@ class PlayerController < ApplicationController
 	 def autocomplete_player_name
 	 		@all_players=Player.where("name LIKE '%#{params[:term]}%'")
 	 		puts @all_players
-	 		render :json => @all_players.to_json(:only => [:name ,:webId])
+	 		render :json => @all_players.to_json(:only => [:name ,:webId,:slug])
 	end
 
 
@@ -102,8 +102,8 @@ class PlayerController < ApplicationController
 		
 	end
 	def set_players
-		@player1 = Player.where("name LIKE '%#{params[:id1]}%'").first
-		@player2 = Player.where("name LIKE '%#{params[:id2]}%'").first
+		@player1 = Player.where("slug LIKE '%#{params[:id1]}%'").first
+		@player2 = Player.where("slug LIKE '%#{params[:id2]}%'").first
 		
 	end
 	def set_country
