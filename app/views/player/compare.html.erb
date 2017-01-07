@@ -33,10 +33,10 @@
               <div class="card-stacked">
                 
                 <div class="card-action">
-                  <%=link_to @player2.name,profile_path(@player2.name)%>
+                  <%=link_to @player2.name,profile_path(@player2.name),data: { turbolinks: false }%>
                   
                   <br>
-                  <%=link_to @player2.country,country_path(@player2.country)%> 
+                  <%=link_to @player2.country,country_path(@player2.country),data: { turbolinks: false }%> 
                 </div>
               </div>
             </div>

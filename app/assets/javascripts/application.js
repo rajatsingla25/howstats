@@ -13,11 +13,29 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
 //= require turbolinks
 //= require_tree .
 //= require Chart
 //= require Chart.min
 //= require materialize-sprockets
+//= require jquery.ui.all
+
 //= require materialize/extras/nouislider
+function teamIndex(argument) {
+	// body...
+	window.location.href="http://localhost:3000/Team/Index";
+	$("#home").removeClass("active");
+	$("#team").addClass("active");
+}
+function playerIndex(argument) {
+	// body...
+	window.location.href="http://localhost:3000/Player/Index";
+	$("#player").addClass("active");
+}
+function home(argument) {
+	// body...
+	window.location.href="http://localhost:3000/home";
+	$("#home").addClass("active");
+}
+
 

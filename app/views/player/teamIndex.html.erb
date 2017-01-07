@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+		<%Country.all.each do |country|%>
+		 <%if !country.url.nil?%>
+			<div class="col l4" >
+				<div class="card horizontal" style="padding: 20px;height: 125px">
+	              <div class="card-image">
+	                
+	                <img src=<%=country.url%> style="overflow: hidden;">
+	                  
+	              </div>
+	              <div class="card-stacked">
+	                
+	                <div class="card-action">
+	                  
+	                   <%=link_to country.name,country_path(country.name),data: { turbolinks: false }%> 
+	                </div>
+	              </div>
+	            </div>
+			</div>
+		 <%end%>	
+		<%end%>
+		
+	</div>
+</div>

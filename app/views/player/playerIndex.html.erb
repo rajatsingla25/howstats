@@ -1,0 +1,54 @@
+<style type="text/css">
+	.ui-helper-hidden-accessible {
+  display: none;
+}
+</style>
+<div class="container">
+	<div class="row">
+    <div class="col s12 l6 offset-l3">
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">textsms</i>
+          <input type="text" id="autocomplete-input" >
+          <label for="autocomplete-input">Search Player</label>
+        </div>
+      </div>
+    </div>
+  </div>
+	
+</div>
+<script type="text/javascript">
+	$('#autocomplete-input').autocomplete({
+                  source: function(request,response){
+                      $.ajax({
+                          method: 'GET',
+                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input').val(),
+                          dataType : 'json',
+                          success : function(data) {
+                            data = data.slice(0,4);
+                               response($.map(data,function(v,i) {
+                                var playerName =  v.name;
+ 
+                                return {
+                                    id: v.webId,
+                                    label: playerName,
+                                    value: playerName
+                                }
+                            }))
+                        }
+                    });
+                },
+                open: function() {
+                   
+                  },
+                select: function(event,ui) {
+ 
+                  window.location.href="http://localhost:3000/profile/"+ui.item.label;
+                }
+            });
+
+
+               
+
+
+</script>

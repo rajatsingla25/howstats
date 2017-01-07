@@ -1,39 +1,6 @@
 <% @title = "Player Fight!" %>
 <style>
-.ui-autocomplete {
-    position: absolute;
-    z-index: 1000;
-    cursor: default;
-    padding: 0;
-    margin-top: 2px;
-    list-style: none;
-    background-color: #ffffff;
-    border: 1px solid #ccc
-    -webkit-border-radius: 5px;
-       -moz-border-radius: 5px;
-            border-radius: 5px;
-    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-       -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-.ui-menu-item{
-  text-align: center;
-vertical-align: middle;
-line-height: 40px;  
-}
- 
-.ui-autocomplete > li {
-  padding: 3px 20px;
-}
-.ui-autocomplete > li.ui-state-focus {
-  background-color: #DDD;
-}
-.ui-helper-hidden-accessible {
-  display: none;
-}
-.ui-helper-hidden-accessible {
- display:none; 
-}
+
 </style>
 <div class="container">
   <!-- // -->
@@ -45,7 +12,7 @@ line-height: 40px;
   <div class="col l4">
           <div class="card" style="padding: 5px">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator center circle" id="img-1" style="overflow: hidden;border-radius: 50% " src="http://i.cricketcb.com/stats/img/faceImages/1909.jpg">
+            <img class="activator center circle" id="img-1" style="overflow: hidden;border-radius: 50% " src="http://www.porticodesign.com/wp-content/uploads/2014/03/blank-person-07d1653f840307220b203ecb834f5904-400x400.png">
           </div>
           <div class="card-content">
  
@@ -77,7 +44,7 @@ line-height: 40px;
   <div class="col l4">
           <div class="card" style="padding: 5px">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" id="img-2" style="overflow: hidden;border-radius: 50% " src="/images/vk.jpg">
+            <img class="activator" id="img-2" style="overflow: hidden;border-radius: 50% " src="http://www.porticodesign.com/wp-content/uploads/2014/03/blank-person-07d1653f840307220b203ecb834f5904-400x400.png">
           </div>
           <div class="card-content">
  
@@ -107,51 +74,57 @@ line-height: 40px;
   
  
 <script type="text/javascript">
-var autocompletes = (function(){
-  var first=0,second=0;
-      function player_search_autocomplete(){
-          $(document).ready(function() {
-             
-              $('#autocomplete-input-1').autocomplete({
-                  source: function(request,response){
-                      $.ajax({
-                          method: 'GET',
-                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input-1').val(),
-                          dataType : 'json',
-                          success : function(data) {
-                            data = data.slice(0,4);
-                               response($.map(data,function(v,i) {
-                                var playerName =  v.name;
+// $( "#autocomplete-input-1" ).autocomplete({
+//       source: '/players/autocomplete_player_name/',
+      
+//     });
+
+// var autocompletes = (function(){
+//   var first=0,second=0;
+//       function player_search_autocomplete(){
+//           $(document).ready(function() {
+//               $('#autocomplete-input-1').autocomplete({
+//                   // source: function(request,response){
+//                   source: '/players/autocomplete_player_name/',
+                    //   $.ajax({
+                    //       method: 'GET',
+                    //       url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input-1').val(),
+                    //       dataType : 'json',
+                    //       success : function(data) {
+                    //         data = data.slice(0,4);
+                    //            response($.map(data,function(v,i) {
+                    //             var playerName =  v.name;
  
-                                return {
-                                    id: v.webId,
-                                    label: playerName,
-                                    value: playerName
-                                }
-                            }))
-                        }
-                    });
-                },
-                open: function() {
-                   
-                  },
-                select: function(e,ui) {
-                   first=1;
-                   console.log(ui.item.id);
-                   var url="http://i.cricketcb.com/stats/img/faceImages/"+ui.item.id+".jpg";
-                   $("#img-1").attr('src',url);
-                   if(second == 1){
-                       first=second=0;
-                       setTimeout(function(){$('#submitbtn').click();}, 1500);
+                    //             return {
+                    //                 id: v.webId,
+                    //                 label: playerName,
+                    //                 value: playerName
+                    //             }
+                    //         }))
+                    //     }
+                    // });
+                // },
+                
+                // select: function(e,ui) {
+                //    first=1;
+                //    console.log(ui.item.id);
+                //    var url="http://i.cricketcb.com/stats/img/faceImages/"+ui.item.id+".jpg";
+                //    $("#img-1").attr('src',url);
+                //    if(second == 1){
+                //        first=second=0;
+                //        setTimeout(function(){$('#submitbtn').click();}, 1500);
                        
-                     }
-                }
-            }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-  return $( "<li>" )
-    .data( "ui-autocomplete-item", item )
-    .append( "<div style='height:100px'><img src='http://i.cricketcb.com/stats/img/faceImages/"+item.id+".jpg' class='center circle' style='height:60px ;width:60px'>"+"<br><h6>"+item.label+"</h6></div>"  )
-    .appendTo(ul);
-};
+                //      }
+                // },
+
+            // });
+
+//               _renderItem: function( ul, item ) {
+//   return $( "<li>" )
+//     .data( "ui-autocomplete-item", item )
+//     .append( "<div style='height:100px'><img src='http://i.cricketcb.com/stats/img/faceImages/"+item.id+".jpg' class='center circle' style='height:60px ;width:60px'>"+"<br><h6>"+item.label+"</h6></div>"  )
+//     .appendTo(ul);
+// }
  
             $('#autocomplete-input-2').autocomplete({
                   source: function(request,response){
@@ -183,28 +156,63 @@ var autocompletes = (function(){
                   // setTimeout(function(){}, 3000);
                    var url="http://i.cricketcb.com/stats/img/faceImages/"+ui.item.id+".jpg";
                    $("#img-2").attr('src',url);
-                   if(first == 1){
-                       first=second=0;
-                      setTimeout(function(){$('#submitbtn').click();}, 1500);
-                     }
+                   // if(first == 1){
+                   //     first=second=0;
+                   //    setTimeout(function(){$('#submitbtn').click();}, 1500);
+                   //   }
                 }
-            }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-                  return $( "<li>" )
-                    .data( "ui-autocomplete-item", item )
-                    .append( "<div style='height:100px'><img src='http://i.cricketcb.com/stats/img/faceImages/"+item.id+".jpg' class='center circle' style='height:60px ;width:60px'>"+"<br><h6>"+item.label+"</h6></div>"  )
-                    .appendTo(ul);
-                };
-        });
-    }
-    return {
-        init : function() {
-                  player_search_autocomplete();
-               }
-      };
-});
+            })
+
+
+                $('#autocomplete-input-1').autocomplete({
+                  source: function(request,response){
+                      $.ajax({
+                          method: 'GET',
+                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input-1').val(),
+                          dataType : 'json',
+                          success : function(data) {
+                            data = data.slice(0,4);
+                               response($.map(data,function(v,i) {
+                                var playerName =  v.name;
+ 
+                                return {
+                                    id: v.webId,
+                                    label: playerName,
+                                    value: playerName
+                                }
+                            }))
+                        }
+                    });
+                },
+                open: function() {
+                   
+                  },
+                select: function(event,ui) {
+ 
+                   second=1;
+                   console.log(ui);
+                  // setTimeout(function(){}, 3000);
+                   var url="http://i.cricketcb.com/stats/img/faceImages/"+ui.item.id+".jpg";
+                   $("#img-1").attr('src',url);
+                   // if(first == 1){
+                   //     first=second=0;
+                   //    setTimeout(function(){$('#submitbtn').click();}, 1500);
+                   //   }
+                }
+            });
+
+
+        // });
+//     }
+//     return {
+//         init : function() {
+//                   player_search_autocomplete();
+//                }
+//       };
+// });
 function init(){
  
-  autocompletes().init();
+  // autocompletes().init();
  
 }
 window.addEventListener('load',init);

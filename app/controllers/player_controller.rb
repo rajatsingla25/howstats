@@ -78,6 +78,10 @@ class PlayerController < ApplicationController
 
 	def home
 	end
+	def teamIndex
+	end
+	def playerIndex
+	end
 
 	def compare
 		puts params[:p1]

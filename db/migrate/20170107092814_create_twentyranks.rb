@@ -1,0 +1,11 @@
+class CreateTwentyranks < ActiveRecord::Migration
+  def change
+    create_table :twentyranks do |t|
+      t.string :rank
+      t.string :rating
+      t.string :points
+
+      t.timestamps null: false
+    end
+  end
+end

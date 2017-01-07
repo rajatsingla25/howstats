@@ -128,11 +128,11 @@
 # 	end
 	
 #  end
-arr.each do |a|
-	c=Country.new
-	c.name=a
-	c.save
-end
+# arr.each do |a|
+# 	c=Country.new
+# 	c.name=a
+# 	c.save
+# end
  # Player.all.each do |p|
 	# p.country=p.country.lstrip
 	# p.save
@@ -175,3 +175,29 @@ end
 
 
 # end
+
+
+
+browser = Watir::Browser.new(:phantomjs)
+url="http://m.cricbuzz.com/cricket-stats/iccrankings/teams"
+browser.goto(url)
+doc1=Nokogiri::HTML.parse(browser.html)
+10.times do |i|
+	j=0
+	
+	str=".list-group:nth-child(8) tr:nth-child("+(i+2).to_s+") .cbz-grid-table-fix:nth-child("+(j+2).to_s+")"
+	str1=".list-group:nth-child(8) tr:nth-child("+(i+2).to_s+") .cbz-grid-table-fix:nth-child("+(j+1).to_s+")"
+	str2=".list-group:nth-child(8) tr:nth-child("+(i+2).to_s+") .cbz-grid-table-fix:nth-child("+(j+3).to_s+")"
+	str3=".list-group:nth-child(8) tr:nth-child("+(i+2).to_s+") .cbz-grid-table-fix:nth-child("+(j+4).to_s+")"
+	name=doc1.css(str).text
+	rank=doc1.css(str1).text
+	points=doc1.css(str2).text
+	rating=doc1.css(str3).text
+	t=Twentyrank.new
+	t.points=points
+	t.rating=rating
+	t.rank=rank
+	c=Country.find_by_name(name)
+	c.twentyrank=t
+end
+

@@ -14,6 +14,8 @@ get '/profile/:id' => 'player#profile', as: :profile
 get '/country/:id' => 'player#country', as: :country
 get '/compare' => 'player#compare'
 get '/home' => 'player#home'
+get '/Team/Index' => 'player#teamIndex'
+get '/Player/Index' => 'player#playerIndex'
 
 # match get '/player/search/autocomplete?term=:id' => 'player#searchList'
 

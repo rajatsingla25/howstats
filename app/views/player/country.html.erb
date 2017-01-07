@@ -2,17 +2,35 @@
 <!-- <script type="text/javascript">
 	$('.carousel').carousel();
 </script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-<div class="container">
+
+<!-- <div class="container">
 	<div class="row">
-		<div class="carousel">
-			<%@country.players.each do |a|%>
-			<%str="http://i.cricketcb.com/stats/img/faceImages/"+a.webId.to_s+".jpg"%>
-			<%str1="/profile/"+a.name%>
-		    <a data-no-turbolink='false' class="carousel-item" href=<%=str1%>><img src=<%=str%>></a>
-		    <%end%>
-		    
-		  </div>
+		<div class="col l12">
+			<div class="carousel">
+				<%@country.players.each do |a|%>
+				<%str="http://i.cricketcb.com/stats/img/faceImages/"+a.webId.to_s+".jpg"%>
+				<%str1="/profile/"+a.name%>
+			    <a data-no-turbolink='false' class="carousel-item" href=<%=str1%>><img src=<%=str%>></a>
+			    <%end%>
+			    
+			</div>
+		</div>
+		<div class="col l12">
+			<ul class="collapsible" data-collapsible="accordion">
+			    <li>
+			      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+			      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+			    </li>
+			    <li>
+			      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+			      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+			    </li>
+			    <li>
+			      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+			      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+			    </li>
+			 </ul>
+		</div>
 		
 	</div>
 	
@@ -25,5 +43,152 @@
 	 console.log('hello1');
     });
 
+</script> -->
+ 
+<div class="container">
+
+	 <div class="col s12 m7">
+    
+        <div class="card horizontal ">
+          <div class="card-image " style="width: 30%">
+           
+            <img style="width: 100%" src=<%=@country.url%>>
+            
+            <h5 style="text-align: center;"><%=@country.name%></h5>
+           
+          </div>
+         
+          <div class="card-stacked ">
+            <div class="card-content">
+               <ul class="collapsible" data-collapsible="accordion">
+                  <li>
+                    <div class="collapsible-header active"><i class="material-icons">filter_drama</i>OdiRanking</div>
+                    
+                    <div class="collapsible-body">
+                        <div class="row">
+                          	<div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">RANK</div>
+                                            <div class="stats-container"><%=@country.odirank.rank%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">RATING</div>
+                                            <div class="stats-container"><%=@country.odirank.rating%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">POINTS</div>
+                                            <div class="stats-container"><%=@country.odirank.points%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                        </div>  
+                    </div>
+                    
+                  </li>
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>TestRanking</div>
+                    
+                    <div class="collapsible-body">
+                        <div class="row">
+                           <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">RANK</div>
+                                            <div class="stats-container"><%=@country.testrank.rank%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">RATING</div>
+                                            <div class="stats-container"><%=@country.testrank.rating%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">POINTS</div>
+                                            <div class="stats-container"><%=@country.testrank.points%>
+                                          
+                                            </div>
+                              </div>
+                            </div> 
+                        </div>
+                    </div>
+                    
+                  </li>
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>T20Ranking</div>
+                    
+                    <div class="collapsible-body">
+                        <div class="row">
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">RANK</div>
+                                            <div class="stats-container"><%=@country.twentyrank.rank%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">RATING</div>
+                                            <div class="stats-container"><%=@country.twentyrank.rating%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">POINTS</div>
+                                            <div class="stats-container"><%=@country.twentyrank.points%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                  </li>
+               </ul>
+            </div>
+           
+          </div>
+    </div>
+  </div>
+  
+  	<div class="col l12" style="margin-top: 50px;">
+  			<div class="col l12">
+  				<h4 class="center-align" style="background-color: #363636;color: white;">PLAYERS</h4>
+    
+  			</div>
+			<div class="carousel " style="background-color: #ECEAF1;">
+						<%@country.players.each do |a|%>
+						<%str="http://i.cricketcb.com/stats/img/faceImages/"+a.webId.to_s+".jpg"%>
+						<%str1="/profile/"+a.name%>
+					    <a data-no-turbolink='false' class="carousel-item" ><img src=<%=str%>> </a>
+
+					    <%end%>
+					    
+			</div>		
+
+	</div>
+  
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+      $('.carousel').carousel();
+    });
 </script>
+
 

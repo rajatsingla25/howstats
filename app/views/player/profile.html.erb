@@ -1,4 +1,4 @@
- 
+
 <div class="container">
 
 	 <div class="col s12 m7">
@@ -15,6 +15,7 @@
           <div class="card-stacked ">
             <div class="card-content">
                <ul class="collapsible" data-collapsible="accordion">
+                  <%if !@player.odirecord.nil?%>
                   <li>
                     <div class="collapsible-header active"><i class="material-icons">filter_drama</i>OdiRecord</div>
                     
@@ -64,6 +65,8 @@
                     </div>
                     
                   </li>
+                  <%end%>
+                  <%if !@player.testrecord.nil?%>
                   <li>
                     <div class="collapsible-header"><i class="material-icons">filter_drama</i>TestRecord</div>
                     
@@ -113,8 +116,10 @@
                     </div>
                     
                   </li>
+                  <%end%>
+                  <%if !@player.twentyrecord.nil?%>
                   <li>
-                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>T20Record</div>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>T20 Record</div>
                     
                     <div class="collapsible-body">
                         <div class="row">
@@ -162,11 +167,62 @@
                     </div>
                     
                   </li>
+                  <%end%>
+
+                  <%if !@player.iplrecord.nil?%>
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>IPL Record</div>
+                    
+                    <div class="collapsible-body">
+                        <div class="row">
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">MATCHES</div>
+                                            <div class="stats-container"><%=@player.iplrecord.m%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">RUNS</div>
+                                            <div class="stats-container"><%=@player.iplrecord.runs%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">AVERAGE</div>
+                                            <div class="stats-container"><%=@player.iplrecord.avg%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">HIGHEST</div>
+                                            <div class="stats-container"><%=@player.iplrecord.hs%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                            <div class="col l4">
+                              <div class="stats-wrapper">
+                                            <div class="stats-header">STRIKE RATE</div>
+                                            <div class="stats-container"><%=@player.iplrecord.sr%>
+                                          
+                                            </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                  </li>
+                  <%end%>
                </ul>
             </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
+            
           </div>
     </div>
   </div>

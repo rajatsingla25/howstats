@@ -4,7 +4,7 @@ gem 'pry-rails'
 gem 'rails4-autocomplete'
 gem 'yaml_db'
 gem 'watir'
-gem "jquery-ui-rails"
+gem "jquery-ui-sass-rails"
 gem 'chart-js-rails'
 gem 'chartjs-ror'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

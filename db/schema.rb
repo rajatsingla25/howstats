@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106072649) do
+ActiveRecord::Schema.define(version: 20170107112433) do
 
   create_table "countries", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "url"
   end
 
   create_table "iplrecords", force: :cascade do |t|
@@ -39,6 +40,15 @@ ActiveRecord::Schema.define(version: 20170106072649) do
     t.integer  "player_id"
   end
 
+  create_table "odiranks", force: :cascade do |t|
+    t.string   "rank"
+    t.string   "rating"
+    t.string   "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "country_id"
+  end
+
   create_table "odirecords", force: :cascade do |t|
     t.integer  "m"
     t.integer  "inn"
@@ -59,23 +69,8 @@ ActiveRecord::Schema.define(version: 20170106072649) do
     t.integer  "player_id"
   end
 
-  create_table "players", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "webId"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "Born"
-    t.string   "nickname"
-    t.string   "height"
-    t.srting   "role"
-    t.string   "batStyle"
-    t.string   "bowlStyle"
-    t.string   "debut"
-    t.string   "lastMatch"
-    t.string   "currentTeams"
-    t.string   "country"
-
-  end
+# Could not dump table "players" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "records", force: :cascade do |t|
     t.string   "name"
@@ -98,6 +93,15 @@ ActiveRecord::Schema.define(version: 20170106072649) do
     t.integer  "player_id"
   end
 
+  create_table "testranks", force: :cascade do |t|
+    t.string   "rank"
+    t.string   "rating"
+    t.string   "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "country_id"
+  end
+
   create_table "testrecords", force: :cascade do |t|
     t.integer  "m"
     t.integer  "inn"
@@ -116,6 +120,15 @@ ActiveRecord::Schema.define(version: 20170106072649) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "player_id"
+  end
+
+  create_table "twentyranks", force: :cascade do |t|
+    t.string   "rank"
+    t.string   "rating"
+    t.string   "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "country_id"
   end
 
   create_table "twentyrecords", force: :cascade do |t|
