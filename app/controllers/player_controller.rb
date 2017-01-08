@@ -98,7 +98,7 @@ class PlayerController < ApplicationController
 		
 	end
 	def set_player
-		@player = Player.where("name LIKE '%#{params[:id]}%'").first
+		@player = Player.where("slug LIKE '%#{params[:id]}%'").first
 		
 	end
 	def set_players

@@ -14,7 +14,7 @@ $('#search').autocomplete({
                                 return {
                                     id: v.webId,
                                     label: playerName,
-                                    value: playerName
+                                    value: v.slug
                                 }
                             }))
                         }
@@ -24,7 +24,7 @@ $('#search').autocomplete({
                    
                   },
                 select: function(event,ui) {
-                      window.location.href="http://localhost:3000/profile/"+ui.item.label;
+                      window.location.href="http://localhost:3000/profile/"+ui.item.value;
                   
                 }
             });
