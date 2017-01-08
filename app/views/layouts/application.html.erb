@@ -7,6 +7,14 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css"> -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1120021018113378";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
   
  
 </head>
@@ -38,15 +46,18 @@
         </div>
       </form>
     </div></li>
-          <li><a class="waves-effect waves-light btn" style="background-color: #0084B4"><i class="fa fa-facebook left" aria-hidden="true" style="color: white;height: 36px;line-height: 36px;"></i>Facebook</a></li>
-          <li><a class="waves-effect waves-light btn" style="width: 32px;height: 32px;"><i class="fa fa-list left" aria-hidden="true" style="color: white;height: 36px;line-height: 36px;"></i></a></li>
+          <li>
+            <div class="fb-share-button " data-href="https://192.168.43.169.xip.io:3000/home" ><a class="fb-xfbml-parse-ignore waves-effect waves-light btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" style="background-color: #0084B4"><i class="fa fa-facebook left" aria-hidden="true" style="color: white;height: 36px;line-height: 36px;"></i>FACEBOOK</a></div>
+          </li>
           
-         
+          <li><a class="waves-effect waves-light btn" style="width: 32px;height: 32px;"><i class="fa fa-list left" aria-hidden="true" style="color: white;height: 36px;line-height: 36px;"></i></a></li> 
+          
         </ul>
       </div>
     </nav>
   </div>
-    </header> 
+  
+</header> 
 
  
 
