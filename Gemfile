@@ -7,6 +7,8 @@ gem 'watir'
 gem "jquery-ui-sass-rails"
 gem 'chart-js-rails'
 gem 'chartjs-ror'
+gem 'social-share-button'
+
 # Gemfile
 gem 'friendly_id', '~> 5.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

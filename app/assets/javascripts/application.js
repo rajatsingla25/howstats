@@ -19,6 +19,7 @@
 //= require Chart.min
 //= require materialize-sprockets
 //= require jquery.ui.all
+//= require social-share-button
 
 //= require materialize/extras/nouislider
 function teamIndex(argument) {
