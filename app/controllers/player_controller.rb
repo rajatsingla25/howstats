@@ -112,6 +112,7 @@ class PlayerController < ApplicationController
 		
 	end
 	 def set_records
+
 	 	@p1TestRecord =@player1.testrecord
 	 	@p1OdiRecord =@player1.odirecord
 	 	@p1T20Record =@player1.twentyrecord
@@ -120,6 +121,20 @@ class PlayerController < ApplicationController
 	 	@p2T20Record =@player2.twentyrecord
 	 	@p1IplRecord =@player1.iplrecord
 	 	@p2IplRecord =@player2.iplrecord
+
+	 	if(!@p1TestRecord.nil? && !@p2TestRecord.nil?)
+	 		@notnullrecordfirst=@p1TestRecord
+	 		@notnullrecordsecond=@p2TestRecord
+	 	elsif(!@p1OdiRecord.nil? && !@p2OdiRecord.nil?)
+	 		@notnullrecordfirst=@p1OdiRecord
+	 		@notnullrecordsecond=@p2OdiRecord
+	 	elsif(!@p1T20Record.nil? && !@p2T20Record.nil?)
+	 			@notnullrecordfirst=@p1OdiRecord
+	 		    @notnullrecordsecond=@p2OdiRecord
+	 	elsif(!@p1IplRecord.nil? && !@p2IplRecord.nil?)
+	 			@notnullrecordfirst=@p1IplRecord
+	 			@notnullrecordsecond=@p2IplRecord
+	 	end	
 	 end
 
 
