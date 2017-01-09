@@ -41,7 +41,11 @@
               </div>
             </div>
           </div>
-          <div id="all-buttons" class="col l12"> 
+          
+          <!-- don't delete below div it fix positon of buttons -->
+          <div class="col l12"></div>
+
+          <div id="all-buttons" class="col l4 offset-l4"> 
              <%if(!@p1OdiRecord.nil?&&!@p2OdiRecord.nil?)%>
               <!-- <input type = 'button' id = 'b1' value = 'ODIs' /> -->
               <a class="waves-effect waves-light btn" id="b1">ODI</a>
@@ -180,12 +184,12 @@ var ctx2 = document.getElementById("myChart2");
                 label: '<%= @player1.name %>',
                 data: dataarray21,
                 backgroundColor: [
-                       '#2196f3',
-                        '#2196f3','#2196f3'
+                       '#f2f204',
+                        '#f2f204', '#f2f204'
                     ],
             borderColor: [
-                 '#2196f3',
-                        '#2196f3','#2196f3'         
+                 '#f2f204',
+                        '#f2f204' , '#f2f204'              
             ],
             borderWidth: 1
            },
@@ -193,12 +197,14 @@ var ctx2 = document.getElementById("myChart2");
             label: '<%= @player2.name %>',
             data: dataarray22,
             backgroundColor: [
-                '#ff3d00',
-                '#ff3d00','#ff3d00'
+                '#7cb342',
+                        '#7cb342' ,'#7cb342'
+                         
             ],
             borderColor: [
-                '#ff3d00',
-                '#ff3d00','#ff3d00'
+                '#7cb342',
+                        '#7cb342' ,'#7cb342'
+                        
             ],
             borderWidth: 1
            }
@@ -227,14 +233,14 @@ var ctx3 = document.getElementById("myChart3");
                 label: '<%= @player1.name %>',
                 data: dataarray31,
                 backgroundColor: [
-                       '#7cb342',
-                        '#7cb342','#7cb342',
-                        '#7cb342'
+                       '#ca04f2',
+                        '#ca04f2','#ca04f2',
+                        '#ca04f2'
                     ],
             borderColor: [
-                 '#7cb342',
-                        '#7cb342' ,'#7cb342',
-                        '#7cb342'              
+                 '#ca04f2',
+                        '#ca04f2' ,'#ca04f2',
+                        '#ca04f2'              
             ],
             borderWidth: 1
            },
@@ -332,12 +338,12 @@ myChart2 = new Chart(ctx2, {
                 label: '<%= @player1.name %>',
                 data: [<%= p1.hundred %>,<%= p1.dhundred %>,<%= p1.fifty %>],
                 backgroundColor: [
-                       '#4a148c',
-                        '#4a148c', '#4a148c'
+                       '#f2f204',
+                        '#f2f204', '#f2f204'
                     ],
             borderColor: [
-                 '#4a148c',
-                        '#4a148c' , '#4a148c'              
+                 '#f2f204',
+                        '#f2f204' , '#f2f204'              
             ],
             borderWidth: 1
            },
@@ -381,14 +387,14 @@ myChart3 = new Chart(ctx3, {
                 label: '<%= @player1.name %>',
                 data: [<%= p1.m %>,<%= p1.inn %>,<%= p1.runs %>,<%= p1.hs %>],
                 backgroundColor: [
-                       '#4a148c',
-                        '#4a148c','#4a148c',
-                        '#4a148c'
+                       '#ca04f2',
+                        '#ca04f2','#ca04f2',
+                        '#ca04f2'
                     ],
             borderColor: [
-                 '#4a148c',
-                        '#4a148c' ,'#4a148c',
-                        '#4a148c'              
+                 '#ca04f2',
+                        '#ca04f2' ,'#ca04f2',
+                        '#ca04f2'              
             ],
             borderWidth: 1
            },
@@ -489,12 +495,12 @@ myChart2 = new Chart(ctx2, {
                 label: '<%= @player1.name %>',
                 data: [<%= p1.hundred %>,<%= p1.dhundred %>,<%= p1.fifty %>],
                 backgroundColor: [
-                       '#4a148c',
-                        '#4a148c', '#4a148c'
+                       '#f2f204',
+                        '#f2f204', '#f2f204'
                     ],
             borderColor: [
-                 '#4a148c',
-                        '#4a148c' , '#4a148c'              
+                 '#f2f204',
+                        '#f2f204' , '#f2f204'              
             ],
             borderWidth: 1
            },
@@ -502,12 +508,14 @@ myChart2 = new Chart(ctx2, {
             label: '<%= @player2.name %>',
             data: [<%= p2.hundred %>,<%= p2.dhundred %>,<%= p2.fifty %>],
             backgroundColor: [
-                '#ff3d00',
-                '#ff3d00','#ff3d00'
+                '#7cb342',
+                        '#7cb342' ,'#7cb342'
+                         
             ],
             borderColor: [
-                '#ff3d00',
-                '#ff3d00','#ff3d00'
+                '#7cb342',
+                        '#7cb342' ,'#7cb342'
+                        
             ],
             borderWidth: 1
            }
@@ -536,14 +544,14 @@ myChart3 = new Chart(ctx3, {
                 label: '<%= @player1.name %>',
                 data: [<%= p1.m %>,<%= p1.inn %>,<%= p1.runs %>,<%= p1.hs %>],
                 backgroundColor: [
-                       '#4a148c',
-                        '#4a148c','#4a148c',
-                        '#4a148c'
+                       '#ca04f2',
+                        '#ca04f2','#ca04f2',
+                        '#ca04f2'
                     ],
             borderColor: [
-                 '#4a148c',
-                        '#4a148c' ,'#4a148c',
-                        '#4a148c'              
+                 '#ca04f2',
+                        '#ca04f2' ,'#ca04f2',
+                        '#ca04f2'              
             ],
             borderWidth: 1
            },
@@ -644,12 +652,12 @@ myChart2 = new Chart(ctx2, {
                 label: '<%= @player1.name %>',
                 data: [<%= p1.hundred %>,<%= p1.dhundred %>,<%= p1.fifty %>],
                 backgroundColor: [
-                       '#4a148c',
-                        '#4a148c', '#4a148c'
+                       '#f2f204',
+                        '#f2f204', '#f2f204'
                     ],
             borderColor: [
-                 '#4a148c',
-                        '#4a148c' , '#4a148c'              
+                 '#f2f204',
+                        '#f2f204' , '#f2f204'              
             ],
             borderWidth: 1
            },
@@ -657,12 +665,14 @@ myChart2 = new Chart(ctx2, {
             label: '<%= @player2.name %>',
             data: [<%= p2.hundred %>,<%= p2.dhundred %>,<%= p2.fifty %>],
             backgroundColor: [
-                '#ff3d00',
-                '#ff3d00','#ff3d00'
+                '#7cb342',
+                        '#7cb342' ,'#7cb342'
+                         
             ],
             borderColor: [
-                '#ff3d00',
-                '#ff3d00','#ff3d00'
+                '#7cb342',
+                        '#7cb342' ,'#7cb342'
+                        
             ],
             borderWidth: 1
            }
@@ -691,14 +701,14 @@ myChart3 = new Chart(ctx3, {
                 label: '<%= @player1.name %>',
                 data: [<%= p1.m %>,<%= p1.inn %>,<%= p1.runs %>,<%= p1.hs %>],
                 backgroundColor: [
-                       '#4a148c',
-                        '#4a148c','#4a148c',
-                        '#4a148c'
+                       '#ca04f2',
+                        '#ca04f2','#ca04f2',
+                        '#ca04f2'
                     ],
             borderColor: [
-                 '#4a148c',
-                        '#4a148c' ,'#4a148c',
-                        '#4a148c'              
+                 '#ca04f2',
+                        '#ca04f2' ,'#ca04f2',
+                        '#ca04f2'              
             ],
             borderWidth: 1
            },
