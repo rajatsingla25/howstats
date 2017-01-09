@@ -20,7 +20,7 @@
               <div class="col s12">
                 <div class="row">
                   <div class="input-field col s12">
-                    <i class="material-icons right">more_vert</i>
+                   
                     <input type="text" id="autocomplete-input-1" class="autocomplete">
                     <label for="autocomplete-input-1">Autocomplete</label>
  
@@ -52,7 +52,7 @@
               <div class="col s12">
                 <div class="row">
                   <div class="input-field col s12">
-                    <i class="material-icons right">more_vert</i>
+                    
                     <input type="text" id="autocomplete-input-2" class="autocomplete">
                     <label for="autocomplete-input-2">Autocomplete</label>
  
@@ -125,7 +125,7 @@
 //     .append( "<div style='height:100px'><img src='http://i.cricketcb.com/stats/img/faceImages/"+item.id+".jpg' class='center circle' style='height:60px ;width:60px'>"+"<br><h6>"+item.label+"</h6></div>"  )
 //     .appendTo(ul);
 // }
- 
+          
             $('#autocomplete-input-2').autocomplete({
                   source: function(request,response){
                       $.ajax({
@@ -153,15 +153,18 @@
  
                    second=1;
                    console.log(ui);
-                  // setTimeout(function(){}, 3000);
+                  
                    var url="http://i.cricketcb.com/stats/img/faceImages/"+ui.item.id+".jpg";
                    $("#img-2").attr('src',url);
-                   // if(first == 1){
-                   //     first=second=0;
-                   //    setTimeout(function(){$('#submitbtn').click();}, 1500);
-                   //   }
+                
                 }
-            })
+            }).data("ui-autocomplete")._renderItem = function (ul, item) {
+  return $( "<li>" )
+    .data( "ui-autocomplete-item", item )
+    .append( "<a><div style='height:100px'><img src='http://i.cricketcb.com/stats/img/faceImages/"+item.id+".jpg' class='center circle' style='height:60px ;width:60px'>"+"<br><h6>"+item.label+"</h6></div></a>"  )
+    .appendTo(ul);
+    
+};
 
 
                 $('#autocomplete-input-1').autocomplete({
@@ -187,19 +190,19 @@
                 open: function() {
                    
                   },
-                select: function(event,ui) {
- 
-                   second=1;
-                   console.log(ui);
-                  // setTimeout(function(){}, 3000);
+                select: function(event,ui){
+                  console.log("hey");
+                   //console.log(ui);
                    var url="http://i.cricketcb.com/stats/img/faceImages/"+ui.item.id+".jpg";
                    $("#img-1").attr('src',url);
-                   // if(first == 1){
-                   //     first=second=0;
-                   //    setTimeout(function(){$('#submitbtn').click();}, 1500);
-                   //   }
                 }
-            });
+            }).data("ui-autocomplete")._renderItem = function (ul, item) {
+  return $( "<li>" )
+    .data( "ui-autocomplete-item", item )
+    .append( "<a><div style='height:100px'><img src='http://i.cricketcb.com/stats/img/faceImages/"+item.id+".jpg' class='center circle' style='height:60px ;width:60px'>"+"<br><h6>"+item.label+"</h6></div></a>"  )
+    .appendTo(ul);
+    
+};
 
 
         // });

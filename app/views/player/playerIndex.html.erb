@@ -45,7 +45,13 @@
  
                   window.location.href="http://localhost:3000/profile/"+ui.item.value;
                 }
-            });
+            }).data("ui-autocomplete")._renderItem = function (ul, item) {
+  return $( "<li>" )
+    .data( "ui-autocomplete-item", item )
+    .append( "<a><div style='height:100px'><img src='http://i.cricketcb.com/stats/img/faceImages/"+item.id+".jpg' class='center circle' style='height:60px ;width:60px'>"+"<br><h6>"+item.label+"</h6></div></a>"  )
+    .appendTo(ul);
+    
+};
 
 
                
