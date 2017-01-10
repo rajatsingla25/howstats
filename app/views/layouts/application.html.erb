@@ -52,7 +52,8 @@
            <li>
             <%= social_share_button_tag("Checkout this amazing website!") %>
           </li> 
-          <li><a class="waves-effect waves-light btn" style="width: 32px;height: 32px;"><i class="fa fa-list left" aria-hidden="true" style="color: white;height: 36px;line-height: 36px;"></i></a></li> 
+          <!-- <li><a class="waves-effect waves-light btn" style="width: 32px;height: 32px;"><i class="fa fa-list left" aria-hidden="true" style="color: white;height: 36px;line-height: 36px;"></i></a></li>  -->
+          <li><button data-target="modal1" class="btn modal-trigger" style="height: 36px;width: 66px;padding: 0;margin-left: 4px;"><i class="fa fa-list left" aria-hidden="true" style="color: white;height: 36px;line-height: 36px;margin-left: 23px;"></i></button></li>
         </ul>
       </div>
     </nav>
@@ -84,7 +85,69 @@
          <script type="text/javascript" src="/assets/searchAutocomplete.js"></script>
 
   <%= yield %>
- 
- 
+
+
+
+ <!--  Modal Work -->
+
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Meet the Team</h4>
+      <ul class="collection">
+        <li class="collection-item avatar">
+          <img src="https://ninjasfiles.s3.amazonaws.com/0000000000000044.png" alt="" class="circle" style="height: 62px;width: 62px;">
+          <span class="title" style="margin-left: 15px;">Tushar Tuteja</span>
+          <p style="margin-left: 15px;">Adviser <br>
+             Coding Ninjas
+          </p>
+         
+        </li>
+        <li class="collection-item avatar">
+          <img src="https://ninjasfiles.s3.amazonaws.com/0000000000000039.png" alt="" class="circle" style="height: 62px;width: 62px;">
+          <span class="title" style="margin-left: 15px;">Ankush Singla</span>
+          <p style="margin-left: 15px;">Adviser <br>
+             Coding Ninjas
+          </p>
+          
+        </li>
+        <li class="collection-item avatar">
+          <img src="https://scontent.fdel1-1.fna.fbcdn.net/v/t1.0-9/12234880_988622284536596_2505211453751756199_n.jpg?oh=f9a077e2c80eca27e948c5270aef7fa3&oe=58D608E7" alt="" class="circle" style="height: 62px;width: 62px;">
+          <span class="title" style="margin-left: 15px;">Siddhant Bajaj</span>
+          <p style="margin-left: 15px;">Developer</p>
+             
+          
+          
+        </li>
+        <li class="collection-item avatar">
+          <img src="https://scontent.fdel1-1.fna.fbcdn.net/v/t1.0-9/13920734_1351853481495987_4266930590750891044_n.jpg?oh=83a7d10919bbe5def3ba0e563dfe02eb&oe=5913C79A" alt="" class="circle" style="height: 62px;width: 62px;">
+          <span class="title" style="margin-left: 15px;">Sanchit Narula</span>
+          <p style="margin-left: 15px;">Developer</p>
+             
+          
+         
+        </li>
+        <li class="collection-item avatar">
+          <img src="https://scontent.fdel1-1.fna.fbcdn.net/v/t1.0-9/13319783_1128509937220114_962795756840644807_n.jpg?oh=f9be8a9dc6422196fa00507fe1a86baa&oe=58E3201D" alt="" class="circle" style="height: 62px;width: 62px;">
+          <span class="title" style="margin-left: 15px;">Shivam Aggarwal</span>
+          <p style="margin-left: 15px;">Developer</p>
+             
+          
+          
+        </li>
+        <li class="collection-item avatar">
+          <img src="https://scontent.fdel1-1.fna.fbcdn.net/v/t1.0-9/13346722_1077658915613006_2077411956807867613_n.jpg?oh=7f45bed29252a621cdf35c6584d5fb93&oe=58E3AC4C" alt="" class="circle" style="height: 62px;width: 62px;">
+          <span class="title" style="margin-left: 15px;">Rajat Singla</span>
+          <p style="margin-left: 15px;">Developer</p>
+             
+          
+          
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+
+
 </body>
 </html>
