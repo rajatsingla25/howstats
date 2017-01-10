@@ -104,6 +104,10 @@ class PlayerController < ApplicationController
 	def set_players
 		@player1 = Player.where("slug LIKE '%#{params[:id1]}%'").first
 		@player2 = Player.where("slug LIKE '%#{params[:id2]}%'").first
+		if (@player1.nil?||@player2.nil?)
+			flash[:notice] = "Player not found"
+			redirect_to home_path
+		end
 		
 	end
 	def set_country
@@ -139,7 +143,11 @@ class PlayerController < ApplicationController
 	 			@notnullrecordsecond=@p2IplRecord
 	 			@formatofnullrecord="IPL Comparison"
 	 	end	
-	 end
+	 	if (@notnullrecordfirst.nil?||@notnullrecordsecond.nil?)
+			flash[:notice] = "Records not Available"
+			redirect_to home_path
+		end
+	end
 
 
 end

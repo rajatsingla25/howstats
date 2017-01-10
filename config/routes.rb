@@ -13,7 +13,7 @@ get '/compare/:id1/:id2' => 'player#compare'
 get '/profile/:id' => 'player#profile', as: :profile
 get '/country/:id' => 'player#country', as: :country
 get '/compare' => 'player#compare'
-get '/home' => 'player#home'
+get '/home' => 'player#home',as: :home
 get '/Team/Index' => 'player#teamIndex'
 get '/Player/Index' => 'player#playerIndex'
 

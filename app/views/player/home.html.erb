@@ -1,4 +1,5 @@
 <% @title = "Player Fight!" %>
+
 <style>
 
 </style>
@@ -38,7 +39,9 @@
   <div class="col l4 center-align">
     
     <a href="javascript:;" id="submitbtn" class="waves-effect waves-light btn center-align" style="margin-top: 130px;" onclick="compareClicked()">Let the battle begin!</a>
-
+    <% if flash[:notice] %>
+    <div class="notice" style="color: red"><%= flash[:notice] %></div>
+    <% end %>
 
   </div>
   <div class="col l4">
