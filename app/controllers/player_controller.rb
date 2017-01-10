@@ -125,15 +125,19 @@ class PlayerController < ApplicationController
 	 	if(!@p1TestRecord.nil? && !@p2TestRecord.nil?)
 	 		@notnullrecordfirst=@p1TestRecord
 	 		@notnullrecordsecond=@p2TestRecord
+	 		@formatofnullrecord="Test Comparison"
 	 	elsif(!@p1OdiRecord.nil? && !@p2OdiRecord.nil?)
 	 		@notnullrecordfirst=@p1OdiRecord
 	 		@notnullrecordsecond=@p2OdiRecord
+	 		@formatofnullrecord="ODI Comparison"
 	 	elsif(!@p1T20Record.nil? && !@p2T20Record.nil?)
 	 			@notnullrecordfirst=@p1OdiRecord
 	 		    @notnullrecordsecond=@p2OdiRecord
+	 		    @formatofnullrecord="T20 Comparison"
 	 	elsif(!@p1IplRecord.nil? && !@p2IplRecord.nil?)
 	 			@notnullrecordfirst=@p1IplRecord
 	 			@notnullrecordsecond=@p2IplRecord
+	 			@formatofnullrecord="IPL Comparison"
 	 	end	
 	 end
 
