@@ -1,5 +1,5 @@
 $('#search').autocomplete({
-
+                  minLength: 3,
                   source: function(request,response){
                   		console.log("here");
                       $.ajax({
@@ -26,7 +26,8 @@ $('#search').autocomplete({
                 select: function(event,ui) {
                       window.location.href="http://localhost:3000/profile/"+ui.item.value;
                   
-                }
+                },
+                delay :0,
             }).data("ui-autocomplete")._renderItem = function (ul, item) {
   return $( "<li>" )
     .data( "ui-autocomplete-item", item )
