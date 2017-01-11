@@ -16,110 +16,115 @@
 	
  
 # 	@all_records=t.records
- 
-# 	@all_records.each do |currRecord|
- 
-# 		if (!currRecord.nil?)
-# 			#puts currRecord.name
-# 			if(currRecord.name == "ODI")
-# 				s1=currRecord
-# 				o1=Odirecord.new
-# 				o1.m=s1.m
-# 				o1.inn=s1.inn
-# 				o1.no=s1.no
-# 				o1.runs=s1.runs
-# 				o1.hs=s1.hs
-# 				o1.avg=s1.avg
-# 				o1.bf=s1.bf
-# 				o1.sr=s1.sr
-# 				o1.hundred=s1.hundred
-# 				o1.dhundred=s1.dhundred
-# 				o1.fifty=s1.fifty
-# 				o1.four=s1.four
-# 				o1.six=s1.six
-# 				o1.st=s1.st
-# 				o1.player_id=s1.id
-# 				o1.save
-# 				if(t.odirecord.nil?)
-# 					t.odirecord = o1
-# 				end
-				
-				
+ for i in 1910..5000 do
+	@currentplayer=Player.find_by_webId(i)
+		if(!@currentplayer.nil?)
+# 	
+ 			@all_records=@currentplayer.records
 
-# 			elsif (currRecord.name == "T20I")
-# 				s1=currRecord
-# 				o1=Twentyrecord.new
-# 				o1.m=s1.m
-# 				o1.inn=s1.inn
-# 				o1.no=s1.no
-# 				o1.runs=s1.runs
-# 				o1.hs=s1.hs
-# 				o1.avg=s1.avg
-# 				o1.bf=s1.bf
-# 				o1.sr=s1.sr
-# 				o1.hundred=s1.hundred
-# 				o1.dhundred=s1.dhundred
-# 				o1.fifty=s1.fifty
-# 				o1.four=s1.four
-# 				o1.six=s1.six
-# 				o1.st=s1.st
-# 				o1.player_id=s1.id
-# 				o1.save
-# 				if(t.twentyrecord.nil?)
-# 					t.twentyrecord = o1;
-# 				end
-				
-# 			elsif (currRecord.name == "Tests")
-# 				s1=currRecord
-# 				o1=Testrecord.new
-# 				o1.m=s1.m
-# 				o1.inn=s1.inn
-# 				o1.no=s1.no
-# 				o1.runs=s1.runs
-# 				o1.hs=s1.hs
-# 				o1.avg=s1.avg
-# 				o1.bf=s1.bf
-# 				o1.sr=s1.sr
-# 				o1.hundred=s1.hundred
-# 				o1.dhundred=s1.dhundred
-# 				o1.fifty=s1.fifty
-# 				o1.four=s1.four
-# 				o1.six=s1.six
-# 				o1.st=s1.st
-# 				o1.player_id=s1.id
-# 				o1.save
-# 				if(t.testrecord.nil?)
-# 					t.testrecord = o1;
-# 				end
-				
-# 			elsif (currRecord.name == "IPL")
-# 				s1=currRecord
-# 				o1=Iplrecord.new
-# 				o1.m=s1.m
-# 				o1.inn=s1.inn
-# 				o1.no=s1.no
-# 				o1.runs=s1.runs
-# 				o1.hs=s1.hs
-# 				o1.avg=s1.avg
-# 				o1.bf=s1.bf
-# 				o1.sr=s1.sr
-# 				o1.hundred=s1.hundred
-# 				o1.dhundred=s1.dhundred
-# 				o1.fifty=s1.fifty
-# 				o1.four=s1.four
-# 				o1.six=s1.six
-# 				o1.st=s1.st
-# 				o1.player_id=s1.id
-# 				o1.save
-# 				if(t.iplrecord.nil?)
-# 					t.iplrecord = o1;
-# 				end
-				
-# 			else
-# 			end	
-# 		end 
-# 	end
-# end
+ 			@all_records.each do |currRecord|
+					if (!currRecord.nil?)
+						#puts currRecord.name
+						if(currRecord.name == "ODI")
+							s1=currRecord
+							o1=Odirecord.new
+							o1.m=s1.m
+							o1.inn=s1.inn
+							o1.no=s1.no
+							o1.runs=s1.runs
+							o1.hs=s1.hs
+							o1.avg=s1.avg
+							o1.bf=s1.bf
+							o1.sr=s1.sr
+							o1.hundred=s1.hundred
+							o1.dhundred=s1.dhundred
+							o1.fifty=s1.fifty
+							o1.four=s1.four
+							o1.six=s1.six
+							o1.st=s1.st
+							o1.player_id=s1.id
+							o1.save
+							if(@currentplayer.odirecord.nil?)
+								@currentplayer.odirecord = o1
+							end
+							
+							
+
+						elsif (currRecord.name == "T20I")
+							s1=currRecord
+							o1=Twentyrecord.new
+							o1.m=s1.m
+							o1.inn=s1.inn
+							o1.no=s1.no
+							o1.runs=s1.runs
+							o1.hs=s1.hs
+							o1.avg=s1.avg
+							o1.bf=s1.bf
+							o1.sr=s1.sr
+							o1.hundred=s1.hundred
+							o1.dhundred=s1.dhundred
+							o1.fifty=s1.fifty
+							o1.four=s1.four
+							o1.six=s1.six
+							o1.st=s1.st
+							o1.player_id=s1.id
+							o1.save
+							if(@currentplayer.twentyrecord.nil?)
+								@currentplayer.twentyrecord = o1;
+							end
+							
+						elsif (currRecord.name == "Tests")
+							s1=currRecord
+							o1=Testrecord.new
+							o1.m=s1.m
+							o1.inn=s1.inn
+							o1.no=s1.no
+							o1.runs=s1.runs
+							o1.hs=s1.hs
+							o1.avg=s1.avg
+							o1.bf=s1.bf
+							o1.sr=s1.sr
+							o1.hundred=s1.hundred
+							o1.dhundred=s1.dhundred
+							o1.fifty=s1.fifty
+							o1.four=s1.four
+							o1.six=s1.six
+							o1.st=s1.st
+							o1.player_id=s1.id
+							o1.save
+							if(@currentplayer.testrecord.nil?)
+								@currentplayer.testrecord = o1;
+							end
+							
+						elsif (currRecord.name == "IPL")
+							s1=currRecord
+							o1=Iplrecord.new
+							o1.m=s1.m
+							o1.inn=s1.inn
+							o1.no=s1.no
+							o1.runs=s1.runs
+							o1.hs=s1.hs
+							o1.avg=s1.avg
+							o1.bf=s1.bf
+							o1.sr=s1.sr
+							o1.hundred=s1.hundred
+							o1.dhundred=s1.dhundred
+							o1.fifty=s1.fifty
+							o1.four=s1.four
+							o1.six=s1.six
+							o1.st=s1.st
+							o1.player_id=s1.id
+							o1.save
+							if(@currentplayer.iplrecord.nil?)
+								@currentplayer.iplrecord = o1;
+							end
+							
+						else
+						end	
+					end 
+			end
+		end
+  end	
 # arr=[]
 
 # Player.all.each do |p|
@@ -178,26 +183,26 @@
 
 
 
-browser = Watir::Browser.new(:phantomjs)
-url="http://m.cricbuzz.com/cricket-stats/iccrankings/teams"
-browser.goto(url)
-doc1=Nokogiri::HTML.parse(browser.html)
-10.times do |i|
-	j=0
+# browser = Watir::Browser.new(:phantomjs)
+# url="http://m.cricbuzz.com/cricket-stats/iccrankings/teams"
+# browser.goto(url)
+# doc1=Nokogiri::HTML.parse(browser.html)
+# 10.times do |i|
+# 	j=0
 	
-	str=".list-group:nth-child(8) tr:nth-child("+(i+2).to_s+") .cbz-grid-table-fix:nth-child("+(j+2).to_s+")"
-	str1=".list-group:nth-child(8) tr:nth-child("+(i+2).to_s+") .cbz-grid-table-fix:nth-child("+(j+1).to_s+")"
-	str2=".list-group:nth-child(8) tr:nth-child("+(i+2).to_s+") .cbz-grid-table-fix:nth-child("+(j+3).to_s+")"
-	str3=".list-group:nth-child(8) tr:nth-child("+(i+2).to_s+") .cbz-grid-table-fix:nth-child("+(j+4).to_s+")"
-	name=doc1.css(str).text
-	rank=doc1.css(str1).text
-	points=doc1.css(str2).text
-	rating=doc1.css(str3).text
-	t=Twentyrank.new
-	t.points=points
-	t.rating=rating
-	t.rank=rank
-	c=Country.find_by_name(name)
-	c.twentyrank=t
-end
+# 	str=".list-group:nth-child(8) tr:nth-child("+(i+2).to_s+") .cbz-grid-table-fix:nth-child("+(j+2).to_s+")"
+# 	str1=".list-group:nth-child(8) tr:nth-child("+(i+2).to_s+") .cbz-grid-table-fix:nth-child("+(j+1).to_s+")"
+# 	str2=".list-group:nth-child(8) tr:nth-child("+(i+2).to_s+") .cbz-grid-table-fix:nth-child("+(j+3).to_s+")"
+# 	str3=".list-group:nth-child(8) tr:nth-child("+(i+2).to_s+") .cbz-grid-table-fix:nth-child("+(j+4).to_s+")"
+# 	name=doc1.css(str).text
+# 	rank=doc1.css(str1).text
+# 	points=doc1.css(str2).text
+# 	rating=doc1.css(str3).text
+# 	t=Twentyrank.new
+# 	t.points=points
+# 	t.rating=rating
+# 	t.rank=rank
+# 	c=Country.find_by_name(name)
+# 	c.twentyrank=t
+# end
 
