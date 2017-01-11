@@ -76,8 +76,9 @@
      
    </div>
  
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js">
 
-    
+</script>
 <script>
 
     var odiButton = document.getElementById('b1');  
@@ -164,7 +165,6 @@
     },
     options: {
 
-        legend:{labels:{fontColor:"red", fontSize: 18}},
         scales: {
             yAxes: [{
                 ticks: {
@@ -178,7 +178,8 @@
         title: {
             display: true,
             text: '<%= @formatofnullrecord %>',
-            fontColor: '#2bbbad'
+            fontColor: '#2bbbad',
+            fontSize: 22,
         }
     }
 });
@@ -229,11 +230,7 @@ var ctx2 = document.getElementById("myChart2");
                 }
             }]
         },
-        title: {
-            display: true,
-            text: '<%= @formatofnullrecord %>',
-            fontColor: '#2bbbad'
-        }
+        
     }
 });
 var ctx3 = document.getElementById("myChart3");
@@ -285,11 +282,7 @@ var ctx3 = document.getElementById("myChart3");
                 }
             }]
         },
-        title: {
-            display: true,
-            text: '<%= @formatofnullrecord %>',
-            fontColor: '#2bbbad'
-        }
+        
     }
 });
 
@@ -347,7 +340,8 @@ var ctx3 = document.getElementById("myChart3");
         title: {
             display: true,
             text: 'ODI Comparison',
-            fontColor: '#2bbbad'
+            fontColor: '#2bbbad',
+            fontSize: 22,
         }
     }
 });
@@ -398,11 +392,7 @@ myChart2 = new Chart(ctx2, {
                 }
             }]
         },
-        title: {
-            display: true,
-            text: 'ODI Comparison',
-            fontColor: '#2bbbad'
-        }
+        
     }
 });
 myChart3.destroy();
@@ -454,11 +444,7 @@ myChart3 = new Chart(ctx3, {
                 }
             }]
         },
-        title: {
-            display: true,
-            text: 'ODI Comparison',
-            fontColor: '#2bbbad'
-        }
+        
     }
 });
          <%end%>
@@ -519,7 +505,8 @@ myChart3 = new Chart(ctx3, {
         title: {
             display: true,
             text: 'T20 Comparison',
-            fontColor: '#2bbbad'
+            fontColor: '#2bbbad',
+            fontSize: 22,
         }
     }
 });
@@ -570,11 +557,7 @@ myChart2 = new Chart(ctx2, {
                 }
             }]
         },
-        title: {
-            display: true,
-            text: 'T20 Comparison',
-            fontColor: '#2bbbad'
-        }
+        
     }
 });
 myChart3.destroy();
@@ -626,11 +609,7 @@ myChart3 = new Chart(ctx3, {
                 }
             }]
         },
-        title: {
-            display: true,
-            text: 'T20 Comparison',
-            fontColor: '#2bbbad'
-        }
+        
     }
 });
          
@@ -690,8 +669,9 @@ myChart3 = new Chart(ctx3, {
         },
         title: {
             display: true,
-            text: 'Test Comparison',
-            fontColor: '#2bbbad'
+            text: 'TEST Comparison',
+            fontColor: '#2bbbad',
+            fontSize: 22,
         }
     }
 });
@@ -742,11 +722,7 @@ myChart2 = new Chart(ctx2, {
                 }
             }]
         },
-        title: {
-            display: true,
-            text: 'Test Comparison',
-            fontColor: '#2bbbad'
-        }
+        
     }
 });
  myChart3.destroy();
@@ -798,11 +774,7 @@ myChart3 = new Chart(ctx3, {
                 }
             }]
         },
-        title: {
-            display: true,
-            text: 'Test Comparison',
-            fontColor: '#2bbbad'
-        }
+        
     }
 });        
           <%end%>
@@ -863,7 +835,8 @@ myChart3 = new Chart(ctx3, {
         title: {
             display: true,
             text: 'IPL Comparison',
-            fontColor: '#2bbbad'
+            fontColor: '#2bbbad',
+            fontSize: 22,
         }
     }
  
@@ -913,11 +886,7 @@ myChart2 = new Chart(ctx2, {
                 }
             }]
         },
-        title: {
-            display: true,
-            text: 'IPL Comparison',
-            fontColor: '#2bbbad'
-        }
+        
     }
 });
         myChart3.destroy();
@@ -969,11 +938,7 @@ myChart3 = new Chart(ctx3, {
                 }
             }]
         },
-        title: {
-            display: true,
-            text: 'IPL Comparison',
-            fontColor: '#2bbbad'
-        }
+        
     }
 });  
           <%end%>

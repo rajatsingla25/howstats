@@ -15,8 +15,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require Chart
-//= require Chart.min
+
 //= require materialize-sprockets
 //= require jquery.ui.all
 //= require social-share-button
