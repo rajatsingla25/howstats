@@ -230,9 +230,16 @@ function compareClicked(argument) {
   // body...
   var name1=$('#autocomplete-input-1').val();
   var name2=$('#autocomplete-input-2').val();
-  var url="http://localhost:3000/compare/"+name1+"/"+name2;
+
+  // do something later
+  
+  if(name1.length ==0)
+      name1=name1+" ";
+  if(name2.length ==0)
+      name2=name2+" ";
+
+  var url="http://localhost:3000/compare/"+name1+"/"+name2+"/";
   console.log(url);
   window.location.href=url;
-
 }
 </script>
