@@ -5,10 +5,12 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
   pool: 5
   timeout: 5000
-
+  username: sanchit
+  password: s@nchit03
+  host: localhost
 development:
   <<: *default
   database: db/development.sqlite3
@@ -22,4 +24,4 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: db/production

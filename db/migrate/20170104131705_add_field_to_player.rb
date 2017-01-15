@@ -4,7 +4,7 @@ class AddFieldToPlayer < ActiveRecord::Migration
     add_column :players, :birth, :string
     add_column :players, :nickname, :string
     add_column :players, :height, :string
-    add_column :players, :role, :srting
+    add_column :players, :role, :string
     add_column :players, :batStyle, :string
     add_column :players, :bowlStyle, :string
     add_column :players, :debut, :string
