@@ -22,7 +22,7 @@
                   source: function(request,response){
                       $.ajax({
                           method: 'GET',
-                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input').val(),
+                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input').val().toLowerCase(),
                           dataType : 'json',
                           success : function(data) {
                             data = data.slice(0,4);
