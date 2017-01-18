@@ -134,7 +134,7 @@
                   source: function(request,response){
                       $.ajax({
                           method: 'GET',
-                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input-2').val(),
+                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input-2').val().toLowerCase(),
                           dataType : 'json',
                           success : function(data) {
                             data = data.slice(0,4);
@@ -177,7 +177,7 @@
                   source: function(request,response){
                       $.ajax({
                           method: 'GET',
-                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input-1').val(),
+                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input-1').val().toLowerCase(),
                           dataType : 'json',
                           success : function(data) {
                             data = data.slice(0,4);
