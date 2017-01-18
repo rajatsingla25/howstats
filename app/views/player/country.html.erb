@@ -61,6 +61,7 @@
           <div class="card-stacked ">
             <div class="card-content">
                <ul class="collapsible" data-collapsible="accordion">
+                <%if !@country.odirank.nil?%>
                   <li>
                     <div class="collapsible-header active"><i class="material-icons">filter_drama</i>OdiRanking</div>
                     
@@ -94,6 +95,8 @@
                     </div>
                     
                   </li>
+                  <%end%>
+                  <%if !@country.testrank.nil?%>
                   <li>
                     <div class="collapsible-header"><i class="material-icons">filter_drama</i>TestRanking</div>
                     
@@ -127,6 +130,8 @@
                     </div>
                     
                   </li>
+                  <%end%>
+                  <%if !@country.twentyrank.nil?%>
                   <li>
                     <div class="collapsible-header"><i class="material-icons">filter_drama</i>T20Ranking</div>
                     
@@ -160,6 +165,7 @@
                     </div>
                     
                   </li>
+                  <%end%>
                </ul>
             </div>
            
