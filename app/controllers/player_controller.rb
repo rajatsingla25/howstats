@@ -22,7 +22,7 @@ class PlayerController < ApplicationController
 	    end
 	end
 	 def autocomplete_player_name
-	 		@all_players=Player.where("name LIKE '%#{params[:term]}%'")
+	 		@all_players=Player.where("slug LIKE '%#{params[:term]}%'")
 	 		puts @all_players
 	 		render :json => @all_players.to_json(:only => [:name ,:webId,:slug])
 	end
