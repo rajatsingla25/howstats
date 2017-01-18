@@ -23,18 +23,18 @@
 //= require materialize/extras/nouislider
 function teamIndex(argument) {
 	// body...
-	window.location.href="http://localhost:3000/Team/Index";
+	window.location.href="http://139.59.43.80/Team/Index";
 	$("#home").removeClass("active");
 	$("#team").addClass("active");
 }
 function playerIndex(argument) {
 	// body...
-	window.location.href="http://localhost:3000/Player/Index";
+	window.location.href="http://139.59.43.80/Player/Index";
 	$("#player").addClass("active");
 }
 function home(argument) {
 	// body...
-	window.location.href="http://localhost:3000/home";
+	window.location.href="http://139.59.43.80/home";
 	$("#home").addClass("active");
 }
 $(document).ready(function() {
