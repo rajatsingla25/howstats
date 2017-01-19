@@ -5,7 +5,7 @@
    <div class="container">
     <div class="row" style="margin-top: 20px;">
      
-        <div class="col s12 m7 l4">
+        <div class="col s12 m12 l4">
            
              <div class="card horizontal" style="padding: 20px;">
               <div class="card-image">
@@ -26,7 +26,7 @@
             </div>
           </div>
          
-          <div class="col s12 m7 l4 offset-l4">
+          <div class="col s12 m12 l4 offset-l4">
            
             <div class="card horizontal" style="padding: 20px;">
               <div class="card-image">
@@ -47,9 +47,9 @@
           </div>
           
           <!-- don't delete below div it fix positon of buttons -->
-          <div class="col l12"></div>
+          <div class="col l12 s12"></div>
 
-          <div id="all-buttons" class="col l4 offset-l4"> 
+          <div id="all-buttons" class="col l4 s12 m12 offset-l4"> 
              <%if(!@p1OdiRecord.nil?&&!@p2OdiRecord.nil?)%>
               <!-- <input type = 'button' id = 'b1' value = 'ODIs' /> -->
               <a class="waves-effect waves-light btn" id="b1">ODI</a>
@@ -67,13 +67,13 @@
               <!-- <input type = 'button' id = 'b4' value = 'IPLs' /> -->
               <%end%>
              </div>
-          <div class="col l12" style="margin-bottom:20px;margin-top:20px">
+          <div class="col l12 s12" style="margin-bottom:20px;margin-top:20px">
             <canvas id="myChart1" ></canvas>
           </div>
-           <div class="col l12" style="margin-bottom:20px">
+           <div class="col l12 s12" style="margin-bottom:20px">
             <canvas id="myChart2" ></canvas>
           </div>
-          <div class="col l12" style="margin-bottom:20px">
+          <div class="col l12 s12" style="margin-bottom:20px">
             <canvas id="myChart3" ></canvas>
           </div>
     </div>
