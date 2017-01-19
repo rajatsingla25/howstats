@@ -29,7 +29,7 @@ function teamIndex(argument) {
 }
 function playerIndex(argument) {
 	// body...
-	window.location.href="http://howstats.comPlayer/Index";
+	window.location.href="http://howstats.com/Player/Index";
 	$("#player").addClass("active");
 }
 function home(argument) {
