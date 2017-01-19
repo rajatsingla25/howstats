@@ -134,7 +134,7 @@
                   source: function(request,response){
                       $.ajax({
                           method: 'GET',
-                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input-2').val(),
+                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input-2').val().toLowerCase(),
                           dataType : 'json',
                           success : function(data) {
                             data = data.slice(0,4);
@@ -151,8 +151,8 @@
                     });
                 },
                 open: function() {
-                   
-                  },
+         			window.scrollTo(0,document.body.scrollHeight);          
+         	         },
                 select: function(event,ui) {
  
                    second=1;
@@ -177,7 +177,7 @@
                   source: function(request,response){
                       $.ajax({
                           method: 'GET',
-                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input-1').val(),
+                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input-1').val().toLowerCase(),
                           dataType : 'json',
                           success : function(data) {
                             data = data.slice(0,4);
@@ -194,7 +194,7 @@
                     });
                 },
                 open: function() {
-                   
+                   window.scrollTo(0,document.body.scrollHeight);
                   },
                 select: function(event,ui){
                   console.log("hey");
@@ -238,7 +238,7 @@ function compareClicked(argument) {
   if(name2.length ==0)
       name2=name2+" ";
 
-  var url="http://139.59.43.80/compare/"+name1+"/"+name2+"/";
+  var url="http://howstats.com/compare/"+name1+"/"+name2+"/";
   console.log(url);
   window.location.href=url;
 }

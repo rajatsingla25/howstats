@@ -22,7 +22,7 @@
                   source: function(request,response){
                       $.ajax({
                           method: 'GET',
-                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input').val(),
+                          url : '/players/autocomplete_player_name?term=' + $('#autocomplete-input').val().toLowerCase(),
                           dataType : 'json',
                           success : function(data) {
                             data = data.slice(0,4);
@@ -43,7 +43,7 @@
                   },
                 select: function(event,ui) {
  
-                  window.location.href="http://localhost:3000/profile/"+ui.item.value;
+                  window.location.href="http://howstats.com/profile/"+ui.item.value;
                 }
             }).data("ui-autocomplete")._renderItem = function (ul, item) {
   return $( "<li>" )
