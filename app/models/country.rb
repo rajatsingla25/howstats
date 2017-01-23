@@ -3,4 +3,6 @@ class Country < ActiveRecord::Base
 	has_one :testrank
 	has_one :odirank
 	has_one :twentyrank
+	extend FriendlyId 
+	friendly_id :name, use: :slugged
 end

@@ -13,6 +13,7 @@
  
 # @all_players.each do |t|
 # 	puts t.name
+Country.find_each(&:save)
 	Country.all.each do |c|
 			c.url="https://static.sportskeeda.com/cricket_widget/#{c.slug}.svg"
 			c.save!
