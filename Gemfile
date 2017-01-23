@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 gem 'materialize-sass'
 gem 'pry-rails'
 gem 'rails4-autocomplete'
+gem 'rack-slashenforce', :require => 'rack'
 gem 'yaml_db'
 gem 'watir'
 gem "jquery-ui-sass-rails"
