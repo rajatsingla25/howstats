@@ -13,118 +13,121 @@
  
 # @all_players.each do |t|
 # 	puts t.name
-	
+	Country.all.each do |c|
+			c.url="https://static.sportskeeda.com/cricket_widget/#{c.slug}.svg"
+			c.save!
+		end
  
 # 	@all_records=t.records
- for i in 1910..5000 do
-	@currentplayer=Player.find_by_webId(i)
-		if(!@currentplayer.nil?)
-# 	
- 			@all_records=@currentplayer.records
+#  for i in 1910..5000 do
+# 	@currentplayer=Player.find_by_webId(i)
+# 		if(!@currentplayer.nil?)
+# # 	
+#  			@all_records=@currentplayer.records
 
- 			@all_records.each do |currRecord|
-					if (!currRecord.nil?)
-						#puts currRecord.name
-						if(currRecord.name == "ODI")
-							s1=currRecord
-							o1=Odirecord.new
-							o1.m=s1.m
-							o1.inn=s1.inn
-							o1.no=s1.no
-							o1.runs=s1.runs
-							o1.hs=s1.hs
-							o1.avg=s1.avg
-							o1.bf=s1.bf
-							o1.sr=s1.sr
-							o1.hundred=s1.hundred
-							o1.dhundred=s1.dhundred
-							o1.fifty=s1.fifty
-							o1.four=s1.four
-							o1.six=s1.six
-							o1.st=s1.st
-							o1.player_id=s1.id
-							o1.save
-							if(@currentplayer.odirecord.nil?)
-								@currentplayer.odirecord = o1
-							end
+#  			@all_records.each do |currRecord|
+# 					if (!currRecord.nil?)
+# 						#puts currRecord.name
+# 						if(currRecord.name == "ODI")
+# 							s1=currRecord
+# 							o1=Odirecord.new
+# 							o1.m=s1.m
+# 							o1.inn=s1.inn
+# 							o1.no=s1.no
+# 							o1.runs=s1.runs
+# 							o1.hs=s1.hs
+# 							o1.avg=s1.avg
+# 							o1.bf=s1.bf
+# 							o1.sr=s1.sr
+# 							o1.hundred=s1.hundred
+# 							o1.dhundred=s1.dhundred
+# 							o1.fifty=s1.fifty
+# 							o1.four=s1.four
+# 							o1.six=s1.six
+# 							o1.st=s1.st
+# 							o1.player_id=s1.id
+# 							o1.save
+# 							if(@currentplayer.odirecord.nil?)
+# 								@currentplayer.odirecord = o1
+# 							end
 							
 							
 
-						elsif (currRecord.name == "T20I")
-							s1=currRecord
-							o1=Twentyrecord.new
-							o1.m=s1.m
-							o1.inn=s1.inn
-							o1.no=s1.no
-							o1.runs=s1.runs
-							o1.hs=s1.hs
-							o1.avg=s1.avg
-							o1.bf=s1.bf
-							o1.sr=s1.sr
-							o1.hundred=s1.hundred
-							o1.dhundred=s1.dhundred
-							o1.fifty=s1.fifty
-							o1.four=s1.four
-							o1.six=s1.six
-							o1.st=s1.st
-							o1.player_id=s1.id
-							o1.save
-							if(@currentplayer.twentyrecord.nil?)
-								@currentplayer.twentyrecord = o1;
-							end
+# 						elsif (currRecord.name == "T20I")
+# 							s1=currRecord
+# 							o1=Twentyrecord.new
+# 							o1.m=s1.m
+# 							o1.inn=s1.inn
+# 							o1.no=s1.no
+# 							o1.runs=s1.runs
+# 							o1.hs=s1.hs
+# 							o1.avg=s1.avg
+# 							o1.bf=s1.bf
+# 							o1.sr=s1.sr
+# 							o1.hundred=s1.hundred
+# 							o1.dhundred=s1.dhundred
+# 							o1.fifty=s1.fifty
+# 							o1.four=s1.four
+# 							o1.six=s1.six
+# 							o1.st=s1.st
+# 							o1.player_id=s1.id
+# 							o1.save
+# 							if(@currentplayer.twentyrecord.nil?)
+# 								@currentplayer.twentyrecord = o1;
+# 							end
 							
-						elsif (currRecord.name == "Tests")
-							s1=currRecord
-							o1=Testrecord.new
-							o1.m=s1.m
-							o1.inn=s1.inn
-							o1.no=s1.no
-							o1.runs=s1.runs
-							o1.hs=s1.hs
-							o1.avg=s1.avg
-							o1.bf=s1.bf
-							o1.sr=s1.sr
-							o1.hundred=s1.hundred
-							o1.dhundred=s1.dhundred
-							o1.fifty=s1.fifty
-							o1.four=s1.four
-							o1.six=s1.six
-							o1.st=s1.st
-							o1.player_id=s1.id
-							o1.save
-							if(@currentplayer.testrecord.nil?)
-								@currentplayer.testrecord = o1;
-							end
+# 						elsif (currRecord.name == "Tests")
+# 							s1=currRecord
+# 							o1=Testrecord.new
+# 							o1.m=s1.m
+# 							o1.inn=s1.inn
+# 							o1.no=s1.no
+# 							o1.runs=s1.runs
+# 							o1.hs=s1.hs
+# 							o1.avg=s1.avg
+# 							o1.bf=s1.bf
+# 							o1.sr=s1.sr
+# 							o1.hundred=s1.hundred
+# 							o1.dhundred=s1.dhundred
+# 							o1.fifty=s1.fifty
+# 							o1.four=s1.four
+# 							o1.six=s1.six
+# 							o1.st=s1.st
+# 							o1.player_id=s1.id
+# 							o1.save
+# 							if(@currentplayer.testrecord.nil?)
+# 								@currentplayer.testrecord = o1;
+# 							end
 							
-						elsif (currRecord.name == "IPL")
-							s1=currRecord
-							o1=Iplrecord.new
-							o1.m=s1.m
-							o1.inn=s1.inn
-							o1.no=s1.no
-							o1.runs=s1.runs
-							o1.hs=s1.hs
-							o1.avg=s1.avg
-							o1.bf=s1.bf
-							o1.sr=s1.sr
-							o1.hundred=s1.hundred
-							o1.dhundred=s1.dhundred
-							o1.fifty=s1.fifty
-							o1.four=s1.four
-							o1.six=s1.six
-							o1.st=s1.st
-							o1.player_id=s1.id
-							o1.save
-							if(@currentplayer.iplrecord.nil?)
-								@currentplayer.iplrecord = o1;
-							end
+# 						elsif (currRecord.name == "IPL")
+# 							s1=currRecord
+# 							o1=Iplrecord.new
+# 							o1.m=s1.m
+# 							o1.inn=s1.inn
+# 							o1.no=s1.no
+# 							o1.runs=s1.runs
+# 							o1.hs=s1.hs
+# 							o1.avg=s1.avg
+# 							o1.bf=s1.bf
+# 							o1.sr=s1.sr
+# 							o1.hundred=s1.hundred
+# 							o1.dhundred=s1.dhundred
+# 							o1.fifty=s1.fifty
+# 							o1.four=s1.four
+# 							o1.six=s1.six
+# 							o1.st=s1.st
+# 							o1.player_id=s1.id
+# 							o1.save
+# 							if(@currentplayer.iplrecord.nil?)
+# 								@currentplayer.iplrecord = o1;
+# 							end
 							
-						else
-						end	
-					end 
-			end
-		end
-  end	
+# 						else
+# 						end	
+# 					end 
+# 			end
+# 		end
+#   end	
 # arr=[]
 
 # Player.all.each do |p|
