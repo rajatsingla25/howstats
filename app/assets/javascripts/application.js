@@ -23,13 +23,13 @@
 //= require materialize/extras/nouislider
 function teamIndex(argument) {
 	// body...
-	window.location.href="http://howstats.com/Team/Index";
+	window.location.href="http://howstats.com/team/index";
 	$("#home").removeClass("active");
 	$("#team").addClass("active");
 }
 function playerIndex(argument) {
 	// body...
-	window.location.href="http://howstats.com/Player/Index";
+	window.location.href="http://howstats.com/player/index";
 	$("#player").addClass("active");
 }
 function home(argument) {
