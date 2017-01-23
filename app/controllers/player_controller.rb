@@ -111,8 +111,7 @@ class PlayerController < ApplicationController
 		
 	end
 	def set_country
-		@country = Country.where("name LIKE '%#{params[:id]}%'").first
-		
+		@country = Country.where("slug LIKE '#{params[:id]}'").first		
 		
 	end
 	 def set_records
