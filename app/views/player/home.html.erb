@@ -239,6 +239,11 @@ function compareClicked(argument) {
     },
     error:function(){
       $('div.notice').show();
+      $('#autocomplete-input-1').val('');
+      $('#autocomplete-input-2').val('');
+      var blankimageurl="http://www.porticodesign.com/wp-content/uploads/2014/03/blank-person-07d1653f840307220b203ecb834f5904-400x400.png";
+      $("#img-1").attr('src',blankimageurl);
+      $("#img-2").attr('src',blankimageurl);
     }
   });
 }
