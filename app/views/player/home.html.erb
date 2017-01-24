@@ -39,8 +39,7 @@
   <div class="col l4 s12 center-align">
     
     <a href="javascript:;" id="submitbtn" class="waves-effect waves-light btn center-align" style="margin-top: 130px;" onclick="compareClicked()">Let the battle begin!</a>
-    <% if flash[:notice] %>
-    <div class="notice" style="color: red"><%= flash[:notice] %></div>
+      <div class="notice" style="color: red;display: none">Players Not Found !</div>
     <% end %>
 
   </div>
@@ -229,17 +228,18 @@
 function compareClicked(argument) {
   // body...
   var name1=$('#autocomplete-input-1').val();
-  var name2=$('#autocomplete-input-2').val();
-
-  // do something later
-  
-  if(name1.length ==0)
-      name1=name1+" ";
-  if(name2.length ==0)
-      name2=name2+" ";
-
-  var url="http://howstats.com/compare/"+name1+"/"+name2+"/";
-  console.log(url);
-  window.location.href=url;
+  var name2=$('#autocomplete-input-2').val(); 
+  var urlcheck="/checkdata/"+name1+"/"+name2;
+  $.ajax({
+    url:urlcheck,
+    success:function(){
+       var url="http://howstats.com/compare/"+name1+"/"+name2;
+       console.log(url);
+        window.location.href=url;
+    },
+    error:function(){
+      $('div.notice').show();
+    }
+  });
 }
 </script>

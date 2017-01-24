@@ -93,6 +93,16 @@ class PlayerController < ApplicationController
 		@id=@player.webId
 		
 	end
+	def checkPlayers
+		@player1 = Player.where("slug LIKE '#{params[:id1]}'").first
+		@player2 = Player.where("slug LIKE '#{params[:id2]}'").first
+		
+		if(@player1.nil? || @player2.nil?)
+  			render :status => 404
+  		else
+  			render :status => 200
+  		end
+	end
 	def country
 		
 		

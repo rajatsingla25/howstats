@@ -16,7 +16,7 @@ get '/compare' => 'player#compare'
 get '/home' => 'player#home',as: :home
 get '/team/index' => 'player#teamIndex'
 get '/player/index' => 'player#playerIndex'
-
+get '/checkdata/:id1/:id2' =>'player#checkPlayers'
 # match get '/player/search/autocomplete?term=:id' => 'player#searchList'
 
 # resources :players do
