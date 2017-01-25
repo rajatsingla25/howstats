@@ -10,6 +10,8 @@ gem 'chart-js-rails'
 gem 'chartjs-ror'
 gem 'social-share-button'
 gem 'pg'
+gem 'yt', '~> 0.28.0'
+
 # Gemfile
 gem 'friendly_id', '~> 5.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

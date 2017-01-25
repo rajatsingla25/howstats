@@ -76,6 +76,12 @@
           <div class="col l12 s12" style="margin-bottom:20px">
             <canvas id="myChart3" ></canvas>
           </div>
+
+          <div class="col l12 s12" style="margin-bottom:20px">
+            <% @videos.first(4).each do |v| %>
+              <%= (v.embed_html).html_safe %>
+            <%end%>
+          </div>
     </div>
      
    </div>

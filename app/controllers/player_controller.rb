@@ -88,6 +88,14 @@ class PlayerController < ApplicationController
 		
 		@idd1 = @player1.webId
 		@idd2 = @player2.webId
+
+		Yt.configure do |config|
+			config.api_key = 'AIzaSyDGqVGYiBvP6Xq1s_10t-Gmin0BXYypA9c'
+		end
+
+		@videos = Yt::Collections::Videos.new
+		query = "#{@player1.name} vs #{@player2.name}"
+		@videos = @videos.where(q: "#{query}", order: 'viewCount')
 	end
 	def profile
 		@id=@player.webId
