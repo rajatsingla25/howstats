@@ -190,6 +190,8 @@ GEM
     yaml_db (0.4.2)
       rails (>= 3.0, < 5.1)
       rake (>= 0.8.7)
+    yt (0.28.5)
+      activesupport
 
 PLATFORMS
   ruby
@@ -220,6 +222,7 @@ DEPENDENCIES
   watir
   web-console (~> 2.0)
   yaml_db
+  yt (~> 0.28.0)
 
 BUNDLED WITH
    1.13.7
